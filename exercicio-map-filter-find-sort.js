@@ -21,9 +21,9 @@ const aprovada = prova => media(prova) >= 7
 
 const getMedias = alunas => alunas.map(aluna => media(aluna.prova))
 // Fazer uma função que retorne um array de nomes das aprovadas
-const getAprovadas = alunas => alunas.filter(aluna => aprovada(aluna.prova))
+const getAprovadas = alunas => alunas.filter(aluna => aprovada(aluna.prova)).map(aluna => aluna.nome)
 // Fazer uma função que retorne um array de nome das reprovadas
-const getReprovadas = alunas => alunas.filter(aluna => !aprovada(aluna.prova))
+const getReprovadas = alunas => alunas.filter(aluna => !aprovada(aluna.prova)).map(aluna => aluna.nome)
 /* Fazer uma função que retorne um array de objetos:
      [ { nome: String , media: Number, aprovada: Boolean } ] 
      

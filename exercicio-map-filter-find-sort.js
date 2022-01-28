@@ -11,3 +11,30 @@ const alunas = [
     { nome: "Alessandra", prova: { p1: 1.4, p2: 2.7, p3: 6.9 } },
     { nome: "Jane Kelly", prova: { p1: 7, p2: 5.5, p3: 9.1 } },
 ]
+function Media(mediaAlunas) {
+
+    let mostraMedia = mediaAlunas.map(function (mediaNota) {
+        let calculo = ((mediaNota.prova.p1 + mediaNota.prova.p2 + mediaNota.prova.p3) / 3).toFixed(1)
+        return calculo
+    })
+    return mostraMedia
+}
+console.log(Media(alunas))
+/*x.map(Media[Resultado])
+console.log(alunas)*/
+
+
+
+/*function Media(p1, p2, p3) {
+    let Resultado = parseInt(p1 + p2 + p3) / 3
+    let alunaTeste = alunas.nome
+
+
+    return alunaTeste
+}
+console.log(Media(alunas))
+alunas.map(Media[Resultado])
+console.log(alunas)
+
+const notas = mediaAlunas.map(mediaNota => mediaNota)*/
+

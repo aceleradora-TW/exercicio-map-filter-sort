@@ -19,7 +19,40 @@ function Media(mediaAlunas) {
     })
     return mostraMedia
 }
-console.log(Media(alunas))
+//console.log(Media(alunas))
+
+function Aprovadas(aprAluna) {
+
+    // let teste = aprAluna.map(function (aprovada) {
+    //     let teste1 = (aprovada.nome)
+    //     return teste1
+    // })
+    // let teste2 = aprAluna.map(function (nota) {
+    //     let calc = ((nota.prova.p1 + nota.prova.p2 + nota.prova.p3) / 3).toFixed(1)
+    //     return calc
+    // })
+    let teste3 = aprAluna.filter(function (filtro,) {
+        let calc2 = ((filtro.prova.p1 + filtro.prova.p2 + filtro.prova.p3) / 3).toFixed(1)
+        return calc2 >= 7
+    })
+
+    return teste3
+}
+console.log(Aprovadas(alunas))
+
+function Reprovadas(RprAluna) {
+    let aa = RprAluna.filter(function (reprovada) {
+        let calcR = ((reprovada.prova.p1 + reprovada.prova.p2 + reprovada.prova.p3) / 3).toFixed(1)
+        return calcR < 7
+    })
+    return aa
+}
+console.log(Reprovadas(alunas))
+// var fruits = ["Banana", "Orange", "Apple", "Mango"];  typeof fruits;             // retorna o object
+// tipo
+// let = [ fulana, ciclana, ]
+// return aprovadas
+
 /*x.map(Media[Resultado])
 console.log(alunas)*/
 
@@ -37,4 +70,7 @@ alunas.map(Media[Resultado])
 console.log(alunas)
 
 const notas = mediaAlunas.map(mediaNota => mediaNota)*/
-
+// --------------------------------------------------------------------------
+// let aluna = aprAluna
+// let teste = alunas.find((usuario, index, Array) => usuario.name === 'Ashley')
+// return aluna

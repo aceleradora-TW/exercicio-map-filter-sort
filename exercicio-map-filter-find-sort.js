@@ -19,7 +19,7 @@ function Media(mediaAlunas) {
     })
     return mostraMedia
 }
-//console.log(Media(alunas))
+// console.log(Media(alunas))
 
 function Aprovadas(aprAluna) {
 
@@ -31,23 +31,36 @@ function Aprovadas(aprAluna) {
     //     let calc = ((nota.prova.p1 + nota.prova.p2 + nota.prova.p3) / 3).toFixed(1)
     //     return calc
     // })
-    let teste3 = aprAluna.filter(function (filtro,) {
+    let teste3 = aprAluna.map(function (filtro) {
         let calc2 = ((filtro.prova.p1 + filtro.prova.p2 + filtro.prova.p3) / 3).toFixed(1)
-        return calc2 >= 7
+        if (calc2 >= 7) {
+            return "Alunas Aprovadas: " + filtro.nome
+        }
+        return "Aluna Reprovada"
     })
 
     return teste3
 }
-console.log(Aprovadas(alunas))
+// console.log(Aprovadas(alunas))
 
 function Reprovadas(RprAluna) {
     let aa = RprAluna.filter(function (reprovada) {
         let calcR = ((reprovada.prova.p1 + reprovada.prova.p2 + reprovada.prova.p3) / 3).toFixed(1)
-        return calcR < 7
+        if (calcR < 7) {
+            return "Aluna Reprovada: " + reprovada.nome
+        }
+        return "Aluna Aprovada"
     })
     return aa
 }
 console.log(Reprovadas(alunas))
+
+function total(resultado) {
+
+    let aluna = a
+    return null
+}
+// console.log(total(alunas))
 // var fruits = ["Banana", "Orange", "Apple", "Mango"];  typeof fruits;             // retorna o object
 // tipo
 // let = [ fulana, ciclana, ]

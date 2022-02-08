@@ -15,7 +15,21 @@ function Medias() {
     const separacao2 = alunas.map(aluna => aluna.prova.p2)
     const separacao3 = alunas.map(aluna => aluna.prova.p3)
 
-    return (separacao[1] + separacao2[1] + separacao3[1]) / 3
+    const soma1 = (separacao[0] + separacao2[0] + separacao3[0]) / 3
+    const soma2 = (separacao[1] + separacao2[1] + separacao3[1]) / 3
+    const soma3 = (separacao[2] + separacao2[2] + separacao3[2]) / 3
+    const soma4 = (separacao[3] + separacao2[3] + separacao3[3]) / 3
+    const soma5 = (separacao[4] + separacao2[4] + separacao3[4]) / 3
+    const soma6 = (separacao[5] + separacao2[5] + separacao3[5]) / 3
+    const soma7 = (separacao[6] + separacao2[6] + separacao3[6]) / 3
+    const soma8 = (separacao[7] + separacao2[7] + separacao3[7]) / 3
+    const soma9 = (separacao[8] + separacao2[8] + separacao3[8]) / 3
+    const soma10 = (separacao[9] + separacao2[9] + separacao3[9]) / 3
+
+    return `Ashley: ${soma1.toFixed(1)} Sabrina: ${soma2.toFixed(1)} Samantha: ${soma3.toFixed(1)} 
+Andreia: ${soma4.toFixed(1)}  Raquel: ${soma5.toFixed(1)} Amanda: ${soma6.toFixed(1)}   
+Pietra: ${soma7.toFixed(1)} Jaqueline ${soma8.toFixed(1)} 
+Alessandra ${soma9.toFixed(1)} Jane Kelly ${soma10.toFixed(1)} `
 
 
 

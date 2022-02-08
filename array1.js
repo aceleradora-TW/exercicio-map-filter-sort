@@ -15,24 +15,54 @@ function Medias() {
     const separacao2 = alunas.map(aluna => aluna.prova.p2)
     const separacao3 = alunas.map(aluna => aluna.prova.p3)
 
-    
+    return (separacao[1] + separacao2[1] + separacao3[1]) / 3
 
 
-    let soma1 = separacao.reduce(function (valor1, valor2) {
-        return valor1 + valor2;
-    })
-    let soma2 = separacao2.reduce(function (valor2,valorX) {
-        return valor2 + valorX;
-    })
-   let soma3 = separacao3.reduce(function (valor3,valorY) {
-     return valor3 + valorY
- })
-const somaTotal = (soma1 + soma2 + soma3) /3 
-console.log(somaTotal.toFixed(1))
+
+    //const somaTotal = (separacao[0] + separacao2[0] + separacao3[0]) / 3
+    //sreturn somaTotal
 }
 
-Medias()
+console.log(Medias())
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*
+
+    let soma1 = separacao.reduce(function (valor1) {
+        return valor1
+    })
+    let soma2 = separacao2.reduce(function (valor2) {
+        return valor2
+    })
+    let soma3 = separacao3.reduce(function (valor3) {
+        return valor3
+
+    }) */
+
+
+
+
+
+/*function isBigEnough(value) {
+    return value >= 10;
+  }
+  
+  var filtered = [12, 5, 8, 130, 44].filter(isBigEnough);
+  // filtrado é [12, 130, 44]
+  
 
 /*Objeto
 var obj = {a:1, b:2, c:3};
@@ -43,11 +73,6 @@ for (var prop in obj) {
   console.log("obj." + prop + " = " + obj[prop]);
 }
 */
-
-
-
-
-
 
 /* if (vegetais.indexOf(vegetal) === -1) {
     vegetais.push(vegetal);

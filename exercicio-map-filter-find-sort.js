@@ -22,7 +22,6 @@ function Media(mediaAlunas) {
 // console.log(Media(alunas))
 
 function Aprovadas(aprAluna) {
-
     // let teste = aprAluna.map(function (aprovada) {
     //     let teste1 = (aprovada.nome)
     //     return teste1
@@ -31,35 +30,47 @@ function Aprovadas(aprAluna) {
     //     let calc = ((nota.prova.p1 + nota.prova.p2 + nota.prova.p3) / 3).toFixed(1)
     //     return calc
     // })
-    let teste3 = aprAluna.map(function (filtro) {
+    let teste3 = aprAluna.filter(function (filtro) {
         let calc2 = ((filtro.prova.p1 + filtro.prova.p2 + filtro.prova.p3) / 3).toFixed(1)
-        if (calc2 >= 7) {
-            return "Alunas Aprovadas: " + filtro.nome
-        }
-        return "Aluna Reprovada"
+        // if (calc2 >= 7) {
+        // return "Alunas Aprovadas: " + filtro.nome
+        //}
+        return calc2 >= 7
     })
-
     return teste3
 }
-// console.log(Aprovadas(alunas))
+//console.log(Aprovadas(alunas))
 
 function Reprovadas(RprAluna) {
     let aa = RprAluna.filter(function (reprovada) {
         let calcR = ((reprovada.prova.p1 + reprovada.prova.p2 + reprovada.prova.p3) / 3).toFixed(1)
-        if (calcR < 7) {
-            return "Aluna Reprovada: " + reprovada.nome
-        }
-        return "Aluna Aprovada"
+        //if (calcR < 7) {
+        //return "Aluna Reprovada: " + reprovada.nome
+        //}
+        return calcR < 7
     })
     return aa
 }
-console.log(Reprovadas(alunas))
+//console.log(Reprovadas(alunas))
 
 function total(resultado) {
-
-    let aluna = a
-    return null
+    let colega = resultado.map(function (d) {
+        let nota = ((d.prova.p1 + d.prova.p2 + d.prova.p3) / 3).toFixed(1)
+        if (nota >= 7) {
+            nota = true
+        }
+        else {
+            nota = false
+        }
+        return {
+            nome: d.nome,
+            media: ((d.prova.p1 + d.prova.p2 + d.prova.p3) / 3).toFixed(1),
+            aprovada: nota
+        }
+    })
+    return colega
 }
+console.log(total(alunas))
 // console.log(total(alunas))
 // var fruits = ["Banana", "Orange", "Apple", "Mango"];  typeof fruits;             // retorna o object
 // tipo

@@ -70,7 +70,23 @@ function total(resultado) {
     })
     return colega
 }
-console.log(total(alunas))
+
+function maior(c) {
+    let nota = c.find(function (a, b) {
+        let teste = a
+        let teste2 = b
+        console.log(teste + '' + teste2)
+        if (a.prova < b.prova) {
+            return 3
+
+        } else {
+            return true;
+        }
+    })
+    return nota
+}
+console.log(maior(alunas))
+//console.log(total(alunas))
 // console.log(total(alunas))
 // var fruits = ["Banana", "Orange", "Apple", "Mango"];  typeof fruits;             // retorna o object
 // tipo

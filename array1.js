@@ -1,3 +1,4 @@
+
 function Medias() {
     const alunas = [
         { nome: "Ashley", prova: { p1: 5.6, p2: 6.7, p3: 9 } },
@@ -11,9 +12,14 @@ function Medias() {
         { nome: "Alessandra", prova: { p1: 1.4, p2: 2.7, p3: 6.9 } },
         { nome: "Jane Kelly", prova: { p1: 7, p2: 5.5, p3: 9.1 } },
     ]
+
+
+
+
     const separacao = alunas.map(aluna => aluna.prova.p1)
     const separacao2 = alunas.map(aluna => aluna.prova.p2)
     const separacao3 = alunas.map(aluna => aluna.prova.p3)
+
 
     const soma1 = (separacao[0] + separacao2[0] + separacao3[0]) / 3
     const soma2 = (separacao[1] + separacao2[1] + separacao3[1]) / 3
@@ -25,16 +31,15 @@ function Medias() {
     const soma8 = (separacao[7] + separacao2[7] + separacao3[7]) / 3
     const soma9 = (separacao[8] + separacao2[8] + separacao3[8]) / 3
     const soma10 = (separacao[9] + separacao2[9] + separacao3[9]) / 3
+    let geral = [soma1.toFixed(1), soma2.toFixed(1), soma3.toFixed(1),
+    soma4.toFixed(1), soma5.toFixed(1), soma6.toFixed(1),
+    soma7.toFixed(1), soma8.toFixed(1),
+    soma9.toFixed(1), soma10.toFixed(1)]
 
-    return `Ashley: ${soma1.toFixed(1)} Sabrina: ${soma2.toFixed(1)} Samantha: ${soma3.toFixed(1)} 
-Andreia: ${soma4.toFixed(1)}  Raquel: ${soma5.toFixed(1)} Amanda: ${soma6.toFixed(1)}   
-Pietra: ${soma7.toFixed(1)} Jaqueline ${soma8.toFixed(1)} 
-Alessandra ${soma9.toFixed(1)} Jane Kelly ${soma10.toFixed(1)} `
+    return geral
 
 
 
-    //const somaTotal = (separacao[0] + separacao2[0] + separacao3[0]) / 3
-    //sreturn somaTotal
 }
 
 console.log(Medias())

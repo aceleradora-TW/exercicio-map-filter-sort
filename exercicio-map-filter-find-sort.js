@@ -72,16 +72,24 @@ function total(resultado) {
 }
 
 function maior(c) {
-    let nota = c.find(function (a) {
-        //let teste = ((a.prova.p1 + a.prova.p2 + a.prova.p3) / 3).toFixed(1)
-        // let teste2 = ((b.prova.p1 + b.prova.p2 + b.prova.p3) / 3).toFixed(1)
-        // console.log(teste)
-        // console.log(teste2)
-        if (JSON.stringify(a.prova.p1) > JSON.stringify(a.prova.p2)) {
-            return a.nome
+    let nota = c.map(function (a) {
+        let batata = ((a.prova.p1 + a.prova.p2 + a.prova.p3) / 3).toFixed(1)
+        console.log(batata)
+        if (batata >= 7) {
+            return a.nomme
         }
     })
-    return nota
+
+
+    let maxima = nota.reduce(function (b, c) {
+        let teste1 = b
+        //let teste2 =
+        //console.log(teste1 + "   " + teste2)
+
+        return b + " " + c
+
+    }, 0)
+    return maxima
 }
 console.log(maior(alunas))
 //console.log(total(alunas))
@@ -112,3 +120,9 @@ const notas = mediaAlunas.map(mediaNota => mediaNota)*/
 // let aluna = aprAluna
 // let teste = alunas.find((usuario, index, Array) => usuario.name === 'Ashley')
 // return aluna
+
+
+
+        //if (JSON.stringify(a.prova.p1) > JSON.stringify(a.prova.p2)) {
+           // return a.nome
+        //}

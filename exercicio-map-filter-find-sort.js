@@ -72,15 +72,13 @@ function total(resultado) {
 }
 
 function maior(c) {
-    let nota = c.find(function (a, b) {
-        let teste = a
-        let teste2 = b
-        console.log(teste + '' + teste2)
-        if (a.prova < b.prova) {
-            return 3
-
-        } else {
-            return true;
+    let nota = c.find(function (a) {
+        //let teste = ((a.prova.p1 + a.prova.p2 + a.prova.p3) / 3).toFixed(1)
+        // let teste2 = ((b.prova.p1 + b.prova.p2 + b.prova.p3) / 3).toFixed(1)
+        // console.log(teste)
+        // console.log(teste2)
+        if (JSON.stringify(a.prova.p1) > JSON.stringify(a.prova.p2)) {
+            return a.nome
         }
     })
     return nota

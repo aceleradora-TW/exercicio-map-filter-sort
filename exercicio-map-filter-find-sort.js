@@ -92,6 +92,9 @@ function maior(c) {
     return maxima
 }
 console.log(maior(alunas))
+
+
+
 //console.log(total(alunas))
 // console.log(total(alunas))
 // var fruits = ["Banana", "Orange", "Apple", "Mango"];  typeof fruits;             // retorna o object
@@ -126,3 +129,21 @@ const notas = mediaAlunas.map(mediaNota => mediaNota)*/
         //if (JSON.stringify(a.prova.p1) > JSON.stringify(a.prova.p2)) {
            // return a.nome
         //}
+
+
+        
+//var frutas = [{
+    //nome: 'maça'
+//},
+//{
+    //nome: 'banana'
+//},
+//{
+    //nome: 'pera'
+//}];
+
+//frutas.sort(function (a, b) {
+    //return (a.nome > b.nome)
+//})
+
+//console.log(frutas)

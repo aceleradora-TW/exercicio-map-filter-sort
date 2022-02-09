@@ -16,13 +16,16 @@ function aprovadas() {
     const separacao = alunas.map(aluna => aluna.prova.p1)
     const separacao2 = alunas.map(aluna => aluna.prova.p2)
     const separacao3 = alunas.map(aluna => aluna.prova.p3)
-    function filtro(value) {
-        if (soma1 >= 6) {
-            return separaNome
-        }
-        let nomesFiltrados = separaNome.filter(filtro)
+    // function filtro(value) {
+    // if ( ) {
+    //sreturn separaNome
+    // }
+    // let nomesFiltrados = separaNome.filter(filtro)
 
-    }
+
+    let resultado = (separacao[0] + separacao2[0] + separacao3[0]) / 3
+    console.log(resultado)
+    /*
     const soma1 = (separacao[0] + separacao2[0] + separacao3[0]) / 3
     const soma2 = (separacao[1] + separacao2[1] + separacao3[1]) / 3
     const soma3 = (separacao[2] + separacao2[2] + separacao3[2]) / 3
@@ -33,9 +36,9 @@ function aprovadas() {
     const soma8 = (separacao[7] + separacao2[7] + separacao3[7]) / 3
     const soma9 = (separacao[8] + separacao2[8] + separacao3[8]) / 3
     const soma10 = (separacao[9] + separacao2[9] + separacao3[9]) / 3
+*/
 
 
-    filtro()
     //mapeamento das pessoas 
 
 }

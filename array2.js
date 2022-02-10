@@ -1,9 +1,3 @@
-
-
-
-
-
-
 function aprovadas() {
     const alunas = [
         { nome: "Ashley", prova: { p1: 5.6, p2: 6.7, p3: 9 } },
@@ -44,6 +38,7 @@ function aprovadas() {
     const soma8 = (separacao[7] + separacao2[7] + separacao3[7]) / 3
     const soma9 = (separacao[8] + separacao2[8] + separacao3[8]) / 3
     const soma10 = (separacao[9] + separacao2[9] + separacao3[9]) / 3
+
 
 
     //retornaEstado

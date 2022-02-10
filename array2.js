@@ -1,3 +1,9 @@
+
+
+
+
+
+
 function aprovadas() {
     const alunas = [
         { nome: "Ashley", prova: { p1: 5.6, p2: 6.7, p3: 9 } },
@@ -11,18 +17,23 @@ function aprovadas() {
         { nome: "Alessandra", prova: { p1: 1.4, p2: 2.7, p3: 6.9 } },
         { nome: "Jane Kelly", prova: { p1: 7, p2: 5.5, p3: 9.1 } },
     ]
+    function retornaEstado(value) {
+        if (value == "A")
+            return value
+    }
+    var resultado = alunas.filter(retornaEstado)
+    console.log(resultado)
+
+    //console.log(alunas.join())
     const separaNome = alunas.map(aluna => aluna.nome)
     //console.log(separaNome)
     const separacao = alunas.map(aluna => aluna.prova.p1)
+    //console.log(separacao)
     const separacao2 = alunas.map(aluna => aluna.prova.p2)
-    const separacao3 = alunas.map(aluna => aluna.prova.p3)
-    function filtro(value) {
-        if (soma1 >= 6) {
-            return separaNome
-        }
-        let nomesFiltrados = separaNome.filter(filtro)
 
-    }
+    const separacao3 = alunas.map(aluna => aluna.prova.p3)
+    const novoValor = (separacao[0] + separacao2[0] + separacao3[0]) / 3
+    //console.log(novoValor)
     const soma1 = (separacao[0] + separacao2[0] + separacao3[0]) / 3
     const soma2 = (separacao[1] + separacao2[1] + separacao3[1]) / 3
     const soma3 = (separacao[2] + separacao2[2] + separacao3[2]) / 3
@@ -35,14 +46,42 @@ function aprovadas() {
     const soma10 = (separacao[9] + separacao2[9] + separacao3[9]) / 3
 
 
-    filtro()
+    //retornaEstado
     //mapeamento das pessoas 
 
 }
-console.log(aprovadas())
-
+//console.log(aprovadas())
+aprovadas()
 
 /*
+..............................
+/*for (let entry of separacao2) {
+        return entry
+    }
+const usersList = [
+    {name: 'João', credit: 600},
+    {name: 'Maria', credit: 900},
+    {name: 'Carlos', credit: 300},
+    {name: 'Vanessa', credit: 200},
+];
+
+const newUsersList = usersList.filter((user, index, array) => user.credit > 500);
+/* Resultado:
+[
+    {name: 'João', credit: 600},
+    {name: 'Maria', credit: 900}
+]
+
+...........................
+
+ function filtro(value) {
+        if (soma1 >= 6) {
+            // return separaNome
+        }
+        let nomesFiltrados = separaNome.filter(filtro)
+
+    }
+
 soma1 || soma2 || soma3 || soma4 || soma5 || soma6 || soma7 || soma8 || soma9 || soma10 >= 6
 
 if (soma2 >= 6) {

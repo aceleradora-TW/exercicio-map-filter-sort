@@ -74,27 +74,31 @@ function total(resultado) {
 function maior(c) {
     let nota = c.map(function (a) {
         let batata = ((a.prova.p1 + a.prova.p2 + a.prova.p3) / 3).toFixed(1)
-        //console.log(batata)
+        // console.log(batata)
         if (batata >= 7) {
-            return a.nome
+            return batata
         }
-        return "a"
+        return "b"
     })
-
-
-    let maxima = nota.filter(function (b) {
+   
+    let maxima = nota.sort(function (b, c) {
         let arrai2 = [c]
-        let arrai = [b].splice(2, 5)
-        //console.log(arrai)
-        //let teste2 =
-        //console.log(teste1 + "   " + teste2)
+        let arrai = [b]
+        console.log(arrai)
+        // let teste2 =
+        // console.log(teste1 + "   " + teste2)
 
-        return  arrai
+        return  arrai - arrai2
     })
     return maxima
 }
 console.log(maior(alunas))
 
+
+  
+ 
+  // Resultado:
+  // [ {nome: 'Coca Cola', preco: 5}, {nome: 'Pizza', preco: 15} ]
 
 
 //console.log(total(alunas))

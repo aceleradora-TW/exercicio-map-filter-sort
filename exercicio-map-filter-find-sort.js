@@ -74,21 +74,23 @@ function total(resultado) {
 function maior(c) {
     let nota = c.map(function (a) {
         let batata = ((a.prova.p1 + a.prova.p2 + a.prova.p3) / 3).toFixed(1)
-        console.log(batata)
+        //console.log(batata)
         if (batata >= 7) {
-            return a.nomme
+            return a.nome
         }
+        return "a"
     })
 
 
-    let maxima = nota.reduce(function (b, c) {
-        let teste1 = b
+    let maxima = nota.filter(function (b) {
+        let arrai2 = [c]
+        let arrai = [b].splice(2, 5)
+        //console.log(arrai)
         //let teste2 =
         //console.log(teste1 + "   " + teste2)
 
-        return b + " " + c
-
-    }, 0)
+        return  arrai
+    })
     return maxima
 }
 console.log(maior(alunas))

@@ -39,7 +39,7 @@ function Aprovadas(aprAluna) {
     })
     return teste3
 }
-//console.log(Aprovadas(alunas))
+// console.log(Aprovadas(alunas))
 
 function Reprovadas(RprAluna) {
     let aa = RprAluna.filter(function (reprovada) {
@@ -72,30 +72,67 @@ function total(resultado) {
 }
 
 function maior(c) {
-    let nota = c.filter(function (a) {
+    let nota = c.map(function (a) {
+    //   console.log(a)
         let batata = ((a.prova.p1 + a.prova.p2 + a.prova.p3) / 3).toFixed(1)
-         return batata > 7
+        if (batata > 7){
+            return a.nome
+        }
+         return null
     })
-     let reduzir = nota.reduce(function (T1, T2){
-       //console.log(T1)
-       return T1 //+ T2.prova  
-     })
-    //qlet maxima = nota.sort(function (b, c) {
-        //let arrai2 = [c]
-        //let arrai = [b]
-        //console.log(arrai)
-        // let teste2 =
-        // console.log(teste1 + "   " + teste2)
-
-        //return  arrai + arrai2
-    //})
-    return reduzir
+    let maxima = nota.sort(function (b, c) {
+        // let arrai2 = [c]
+        // let arrai = [b]
+        if (b > c){
+            return -1
+        }
+        if (c > b){
+            return 1
+        }
+        // return  arrai - arrai2[3]
+    })
+    return maxima[6]
 }
-console.log(maior(alunas))
+// console.log(maior(alunas))
 
+function menor(c) {
+    let nota = c.map(function (a) {
+    //   console.log(a)
+        let batata = ((a.prova.p1 + a.prova.p2 + a.prova.p3) / 3).toFixed(1)
+        if (batata < 7){
+            return a.nome
+        }
+         return null
+    })
+    let maxima = nota.sort(function (b, c) {
+        // let arrai2 = [c]
+        // let arrai = [b]
+        if (b > c){
+            return -1
+        }
+        if (c > b){
+            return 1
+        }
+        // return  arrai - arrai2[3]
+    })
+    return maxima[8]
+}
+//   console.log(menor(alunas))
 
+function mediaTurma (aluna){
+let nota = aluna.map(function (a){
+   let calculo = ((a.prova.p1 + a.prova.p2 + a.prova.p3) /3).toFixed(1)
   
- 
+  return calculo
+})
+let turma = nota.reduce (function (a, b, c){
+    console.log(a)
+    console.log(b)
+    console.log(c)
+})
+return turma
+}
+console.log(mediaTurma(alunas))
   // Resultado:
   // [ {nome: 'Coca Cola', preco: 5}, {nome: 'Pizza', preco: 15} ]
 

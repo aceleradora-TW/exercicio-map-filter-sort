@@ -72,25 +72,24 @@ function total(resultado) {
 }
 
 function maior(c) {
-    let nota = c.map(function (a) {
+    let nota = c.filter(function (a) {
         let batata = ((a.prova.p1 + a.prova.p2 + a.prova.p3) / 3).toFixed(1)
-        // console.log(batata)
-        if (batata >= 7) {
-            return batata
-        }
-        return "b"
+         return batata > 7
     })
-   
-    let maxima = nota.sort(function (b, c) {
-        let arrai2 = [c]
-        let arrai = [b]
-        console.log(arrai)
+     let reduzir = nota.reduce(function (T1, T2){
+       //console.log(T1)
+       return T1 //+ T2.prova  
+     })
+    //qlet maxima = nota.sort(function (b, c) {
+        //let arrai2 = [c]
+        //let arrai = [b]
+        //console.log(arrai)
         // let teste2 =
         // console.log(teste1 + "   " + teste2)
 
-        return  arrai - arrai2
-    })
-    return maxima
+        //return  arrai + arrai2
+    //})
+    return reduzir
 }
 console.log(maior(alunas))
 

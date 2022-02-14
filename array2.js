@@ -19,7 +19,12 @@ function aprovadas() {
     const separacao2 = alunas.map(aluna => aluna.prova.p2)
 
     const separacao3 = alunas.map(aluna => aluna.prova.p3)
-
+    function retornaAprovada(value) {
+        if (value.charAt(0) == "A")
+            return value;
+    }
+    var resultado = separaNome.filter(retornaAprovada);
+    console.log(resultado);
 
     const soma1 = (separacao[0] + separacao2[0] + separacao3[0]) / 3
     const soma2 = (separacao[1] + separacao2[1] + separacao3[1]) / 3
@@ -35,6 +40,12 @@ function aprovadas() {
     soma4.toFixed(1), soma5.toFixed(1), soma6.toFixed(1),
     soma7.toFixed(1), soma8.toFixed(1),
     soma9.toFixed(1), soma10.toFixed(1)]
+    console.log(geral)
+    for (const value of alunas) {
+        if (value === separaNome) {
+            return value
+        }
+    }
 
 
     /*function retornaAprovada(value) {
@@ -49,17 +60,22 @@ function aprovadas() {
 
     //console.log(value)
     //}
-    console.log(separaNome.length)
 
-
+    /*  // pegar primeiro da lista
+  var inicio = 0
+  // pegar ultimo da lista
+  var final = separaNome.length - 1
+  
+  
+      for (i = inicio; i <= final; i++) {
+          console.log(i)
+      }*/
 
 
 
 }
 
-aprovadas()
-
-
+console.log(aprovadas())
 
 // 10
 // 20

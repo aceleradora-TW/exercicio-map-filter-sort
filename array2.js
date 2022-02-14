@@ -19,12 +19,6 @@ function aprovadas() {
     const separacao2 = alunas.map(aluna => aluna.prova.p2)
 
     const separacao3 = alunas.map(aluna => aluna.prova.p3)
-    function retornaAprovada(value) {
-        if (value.charAt(0) == "A")
-            return value;
-    }
-    var resultado = separaNome.filter(retornaAprovada);
-    console.log(resultado);
 
     const soma1 = (separacao[0] + separacao2[0] + separacao3[0]) / 3
     const soma2 = (separacao[1] + separacao2[1] + separacao3[1]) / 3
@@ -36,16 +30,25 @@ function aprovadas() {
     const soma8 = (separacao[7] + separacao2[7] + separacao3[7]) / 3
     const soma9 = (separacao[8] + separacao2[8] + separacao3[8]) / 3
     const soma10 = (separacao[9] + separacao2[9] + separacao3[9]) / 3
+
     let geral = [soma1.toFixed(1), soma2.toFixed(1), soma3.toFixed(1),
     soma4.toFixed(1), soma5.toFixed(1), soma6.toFixed(1),
     soma7.toFixed(1), soma8.toFixed(1),
     soma9.toFixed(1), soma10.toFixed(1)]
-    console.log(geral)
-    for (const value of alunas) {
-        if (value === separaNome) {
-            return value
-        }
+    //console.log(geral)
+    //for (const value of alunas) {
+    //  if (value === separaNome) {
+    //    return value
+
+
+
+
+    if (geral.length >= 7) {
+        return geral.filter(aprovadas)
     }
+
+
+}
 
 
     /*function retornaAprovada(value) {
@@ -69,11 +72,23 @@ function aprovadas() {
   
       for (i = inicio; i <= final; i++) {
           console.log(i)
-      }*/
+ 
+ 
+    function retornaAprovada(value) {
+        if (value.charAt(0) == "A")
+            return value;
+    }
+    var resultado = separaNome.filter(retornaAprovada);
+    console.log(resultado);
+
+ 
+ 
+ 
+ 
+        }*/
 
 
 
-}
 
 console.log(aprovadas())
 

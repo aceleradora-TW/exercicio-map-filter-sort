@@ -129,7 +129,7 @@ function mediaTurma(aluna) {
         return calculo
     })
     let turma = nota.reduce(function (nota1, nota2) {
-        return nota1 += nota2
+        return (nota1 += nota2 /10) 
     }, 0)
     return turma.toFixed(1)
 }

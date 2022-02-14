@@ -11,23 +11,16 @@ function aprovadas() {
         { nome: "Alessandra", prova: { p1: 1.4, p2: 2.7, p3: 6.9 } },
         { nome: "Jane Kelly", prova: { p1: 7, p2: 5.5, p3: 9.1 } },
     ]
-    function retornaEstado(value) {
-        if (value == "A")
-            return value
-    }
-    var resultado = alunas.filter(retornaEstado)
-    console.log(resultado)
 
-    //console.log(alunas.join())
     const separaNome = alunas.map(aluna => aluna.nome)
-    //console.log(separaNome)
+
     const separacao = alunas.map(aluna => aluna.prova.p1)
-    //console.log(separacao)
+
     const separacao2 = alunas.map(aluna => aluna.prova.p2)
 
     const separacao3 = alunas.map(aluna => aluna.prova.p3)
-    const novoValor = (separacao[0] + separacao2[0] + separacao3[0]) / 3
-    //console.log(novoValor)
+
+
     const soma1 = (separacao[0] + separacao2[0] + separacao3[0]) / 3
     const soma2 = (separacao[1] + separacao2[1] + separacao3[1]) / 3
     const soma3 = (separacao[2] + separacao2[2] + separacao3[2]) / 3
@@ -38,15 +31,41 @@ function aprovadas() {
     const soma8 = (separacao[7] + separacao2[7] + separacao3[7]) / 3
     const soma9 = (separacao[8] + separacao2[8] + separacao3[8]) / 3
     const soma10 = (separacao[9] + separacao2[9] + separacao3[9]) / 3
+    let geral = [soma1.toFixed(1), soma2.toFixed(1), soma3.toFixed(1),
+    soma4.toFixed(1), soma5.toFixed(1), soma6.toFixed(1),
+    soma7.toFixed(1), soma8.toFixed(1),
+    soma9.toFixed(1), soma10.toFixed(1)]
+
+
+    /*function retornaAprovada(value) {
+        if (geral >= value)
+            return "as aprovadas"
+    }
+    //var resultado = alunas.filter(retornaAprovada(7))
+    //   console.log(resultado)
+*/
+    ///geral.sort(function () {
+    //for (let value of separaNome) {
+
+    //console.log(value)
+    //}
+    console.log(separaNome.length)
 
 
 
-    //retornaEstado
-    //mapeamento das pessoas 
+
 
 }
-//console.log(aprovadas())
+
 aprovadas()
+
+
+
+// 10
+// 20
+// 30
+
+
 
 /*
 ..............................

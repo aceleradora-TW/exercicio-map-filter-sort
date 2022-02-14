@@ -11,6 +11,7 @@ const alunas = [
     { nome: "Alessandra", prova: { p1: 1.4, p2: 2.7, p3: 6.9 } },
     { nome: "Jane Kelly", prova: { p1: 7, p2: 5.5, p3: 9.1 } },
 ]
+
 function Media(mediaAlunas) {
 
     let mostraMedia = mediaAlunas.map(function (mediaNota) {
@@ -19,43 +20,43 @@ function Media(mediaAlunas) {
     })
     return mostraMedia
 }
-// console.log(Media(alunas))
+console.log("Média das alunas:",Media(alunas))
 
-function Aprovadas(aprAluna) {
-    // let teste = aprAluna.map(function (aprovada) {
+function Aprovadas(alunaApr) {
+    // let teste = alunaApr.map(function (aprovada) {
     //     let teste1 = (aprovada.nome)
     //     return teste1
     // })
-    // let teste2 = aprAluna.map(function (nota) {
+    // let teste2 = alunaApr.map(function (nota) {
     //     let calc = ((nota.prova.p1 + nota.prova.p2 + nota.prova.p3) / 3).toFixed(1)
     //     return calc
     // })
-    let teste3 = aprAluna.filter(function (filtro) {
-        let calc2 = ((filtro.prova.p1 + filtro.prova.p2 + filtro.prova.p3) / 3).toFixed(1)
-        // if (calc2 >= 7) {
+    let aluna = alunaApr.filter(function (filtro) {
+        let calculo = ((filtro.prova.p1 + filtro.prova.p2 + filtro.prova.p3) / 3).toFixed(1)
+        // if (calculo >= 7) {
         // return "Alunas Aprovadas: " + filtro.nome
         //}
-        return calc2 >= 7
+        return calculo >= 7
     })
-    return teste3
+    return aluna
 }
-// console.log(Aprovadas(alunas))
+console.log("Alunas Aprovadas:",Aprovadas(alunas))
 
 function Reprovadas(RprAluna) {
-    let aa = RprAluna.filter(function (reprovada) {
-        let calcR = ((reprovada.prova.p1 + reprovada.prova.p2 + reprovada.prova.p3) / 3).toFixed(1)
+    let aluna = RprAluna.filter(function (reprovada) {
+        let calculo = ((reprovada.prova.p1 + reprovada.prova.p2 + reprovada.prova.p3) / 3).toFixed(1)
         //if (calcR < 7) {
         //return "Aluna Reprovada: " + reprovada.nome
         //}
-        return calcR < 7
+        return calculo < 7
     })
-    return aa
+    return aluna
 }
-//console.log(Reprovadas(alunas))
+console.log("Alunas Reprovadas:",Reprovadas(alunas))
 
 function total(resultado) {
-    let colega = resultado.map(function (d) {
-        let nota = ((d.prova.p1 + d.prova.p2 + d.prova.p3) / 3).toFixed(1)
+    let aluna = resultado.map(function (teste) {
+        let nota = ((teste.prova.p1 + teste.prova.p2 + teste.prova.p3) / 3).toFixed(1)
         if (nota >= 7) {
             nota = true
         }
@@ -63,76 +64,80 @@ function total(resultado) {
             nota = false
         }
         return {
-            nome: d.nome,
-            media: ((d.prova.p1 + d.prova.p2 + d.prova.p3) / 3).toFixed(1),
+            nome: teste.nome,
+            media: ((teste.prova.p1 + teste.prova.p2 + teste.prova.p3) / 3).toFixed(1),
             aprovada: nota
         }
     })
-    return colega
+    return aluna
 }
+console.log("Retorno de Array com objetos:",total(alunas))
 
-function maior(c) {
-    let nota = c.map(function (a) {
-    //   console.log(a)
-        let batata = ((a.prova.p1 + a.prova.p2 + a.prova.p3) / 3).toFixed(1)
-        if (batata > 7){
-            return a.nome
+function maior(prova) {
+    let nota = prova.map(function (teste) {
+        //   console.log(a)
+        let aluna = ((teste.prova.p1 + teste.prova.p2 + teste.prova.p3) / 3).toFixed(1)
+        if (aluna > 7) {
+            return teste.nome
         }
-         return null
+        return null
     })
-    let maxima = nota.sort(function (b, c) {
+    let maxima = nota.sort(function (aluna1, aluna2) {
         // let arrai2 = [c]
         // let arrai = [b]
-        if (b > c){
+        if (aluna1 > aluna2) {
             return -1
         }
-        if (c > b){
+        if (aluna2 > aluna1) {
             return 1
         }
         // return  arrai - arrai2[3]
     })
     return maxima[6]
 }
-// console.log(maior(alunas))
+console.log("Maior Nota:",maior(alunas))
 
-function menor(c) {
-    let nota = c.map(function (a) {
-    //   console.log(a)
-        let batata = ((a.prova.p1 + a.prova.p2 + a.prova.p3) / 3).toFixed(1)
-        if (batata < 7){
-            return a.nome
+function menor(prova) {
+    let nota = prova.map(function (teste) {
+        //   console.log(a)
+        let aluna = ((teste.prova.p1 + teste.prova.p2 + teste.prova.p3) / 3).toFixed(1)
+        if (aluna < 7) {
+            return teste.nome
         }
-         return null
+        return null
     })
-    let maxima = nota.sort(function (b, c) {
-        // let arrai2 = [c]
-        // let arrai = [b]
-        if (b > c){
+    let minimo = nota.sort(function (aluna1, aluna2) {
+        // let arrai2 = [aluna2]
+        // let arrai = [aluna1]
+        if (aluna1 < aluna2) {
             return -1
         }
-        if (c > b){
+        if (aluna2 < aluna1) {
             return 1
         }
         // return  arrai - arrai2[3]
     })
-    return maxima[8]
+    return minimo[8]
 }
-//   console.log(menor(alunas))
+console.log("Menor Nota:", menor(alunas))
 
-function mediaTurma (aluna){
-let nota = aluna.map(function (a){
-   let calculo = ((a.prova.p1 + a.prova.p2 + a.prova.p3) /3).toFixed(1)
-  
-  return calculo
-})
-let turma = nota.reduce (function (a, b, c){
-    console.log(a)
-    console.log(b)
-    console.log(c)
-})
-return turma
+function mediaTurma(aluna) {
+    let nota = aluna.map(function (teste) {
+
+        let calculo = (teste.prova.p1 + teste.prova.p2 + teste.prova.p3) / 3
+
+        return calculo
+    })
+    let turma = nota.reduce(function (nota1, nota2) {
+        return nota1 += nota2
+    }, 0)
+    return turma.toFixed(1)
 }
-console.log(mediaTurma(alunas))
+console.log("Media da Turma:",mediaTurma(alunas))
+// const notas = [1, 5, 8, 3, 7, 10, 9, 4];
+// let media = notas.reduce((soma, nota) => soma += nota, 0) / notas.length;
+
+// console.log(media.toFixed(2));
   // Resultado:
   // [ {nome: 'Coca Cola', preco: 5}, {nome: 'Pizza', preco: 15} ]
 

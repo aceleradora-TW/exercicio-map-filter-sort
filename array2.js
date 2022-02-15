@@ -47,22 +47,42 @@ function aprovadas() {
         return geral.filter(aprovadas)
     }
 
-
+    const apenasAprovadas = geral.filter(retornaAprovada)
+    console.log(apenasAprovadas)
 }
+
+
 
 
     /*function retornaAprovada(value) {
         if (geral >= value)
             return "as aprovadas"
     }
-    //var resultado = alunas.filter(retornaAprovada(7))
-    //   console.log(resultado)
+}
 */
-    ///geral.sort(function () {
-    //for (let value of separaNome) {
 
-    //console.log(value)
-    //}
+/*function retornaAprovada(value) {
+    if (geral >= value)
+        return "as aprovadas"
+}
+//var resultado = alunas.filter(retornaAprovada(7))
+//   console.log(resultado)
+*/
+///geral.sort(function () {
+//for (let value of separaNome) {
+
+//console.log(value)
+//}
+
+/*  // pegar primeiro da lista
+var inicio = 0
+// pegar ultimo da lista
+var final = separaNome.length - 1
+ 
+ 
+  for (i = inicio; i <= final; i++) {
+      console.log(i)
+  }*/
 
     /*  // pegar primeiro da lista
   var inicio = 0
@@ -90,7 +110,7 @@ function aprovadas() {
 
 
 
-console.log(aprovadas())
+aprovadas()
 
 // 10
 // 20

@@ -1,39 +1,49 @@
-function aprovadas() {
-    const alunas = [
-        { nome: "Ashley", prova: { p1: 5.6, p2: 6.7, p3: 9 } },
-        { nome: "Sabrina", prova: { p1: 6.3, p2: 7.5, p3: 10 } },
-        { nome: "Samantha", prova: { p1: 8, p2: 9.2, p3: 7 } },
-        { nome: "Andreia", prova: { p1: 9, p2: 8, p3: 10 } },
-        { nome: "Raquel", prova: { p1: 10, p2: 9.7, p3: 5 } },
-        { nome: "Amanda", prova: { p1: 2, p2: 4.6, p3: 9.9 } },
-        { nome: "Pietra", prova: { p1: 8.3, p2: 3.1, p3: 9.8 } },
-        { nome: "Jaqueline", prova: { p1: 3.4, p2: 7.2, p3: 6.8 } },
-        { nome: "Alessandra", prova: { p1: 1.4, p2: 2.7, p3: 6.9 } },
-        { nome: "Jane Kelly", prova: { p1: 7, p2: 5.5, p3: 9.1 } },
-    ]
+const alunas = [
+    { nome: "Ashley", prova: { p1: 5.6, p2: 6.7, p3: 9 } },
+    { nome: "Sabrina", prova: { p1: 6.3, p2: 7.5, p3: 10 } },
+    { nome: "Samantha", prova: { p1: 8, p2: 9.2, p3: 7 } },
+    { nome: "Andreia", prova: { p1: 9, p2: 8, p3: 10 } },
+    { nome: "Raquel", prova: { p1: 10, p2: 9.7, p3: 5 } },
+    { nome: "Amanda", prova: { p1: 2, p2: 4.6, p3: 9.9 } },
+    { nome: "Pietra", prova: { p1: 8.3, p2: 3.1, p3: 9.8 } },
+    { nome: "Jaqueline", prova: { p1: 3.4, p2: 7.2, p3: 6.8 } },
+    { nome: "Alessandra", prova: { p1: 1.4, p2: 2.7, p3: 6.9 } },
+    { nome: "Jane Kelly", prova: { p1: 7, p2: 5.5, p3: 9.1 } },
+]
 
-    //    const separaNome = alunas.map(aluna => aluna.nome)
+// formula para calculo da media
+const media = ({p1, p2, p3}) => (p1 + p2 + p3) / 3
 
-    const separacao = alunas.map(aluna => aluna.prova.p1)
+// verificação da aluna, se a media foir maior ou igual a 7, retorna true, se não, false
+const aprovada = prova => media(prova) >= 7 
 
-    const separacao2 = alunas.map(aluna => aluna.prova.p2)
+// verificação da aluna, se a media for menor ou igual a 7, retorna true, se não, false
+const reprovada = prova => media(prova) < 7 
 
-    const separacao3 = alunas.map(aluna => aluna.prova.p3)
-    function retornaAprovada(value) {
-        if (value >= 7 && "")
-            return value;
-    }
+// com base na verificação da função aprovada, retorna o nome da aluna com nota maior que 7
+const aprovadas = alunas => alunas.filter(aluna => aprovada(aluna.prova)).map(aluna => aluna.nome)
+const reprovadas = alunas => alunas.filter(aluna => reprovada(aluna.prova)).map(aluna => aluna.nome)
 
-    const separaNome = alunas.map(aluna => aluna.nome)
+const objetoAluna = alunas => alunas.map(aluna => ({
+    nome: aluna.nome,
+    media: media(aluna.prova),
+    aprovada: aprovada(aluna.prova)
+}))
 
-    const nomes = alunas.forEach(aluna => {
-        let calculo = (aluna.prova.p1 + aluna.prova.p2 + aluna.prova.p3) / 3
-        return calculo
-    })
-    console.log(nomes)
-}
 
-console.log(aprovadas())
+const ordenar = alunas => objetoAluna(alunas).sort((a, b) => a.media - b.media)
+
+// para pegar a aluna com a maior nota,sera necessario o método .pop em .nome
+
+// para pegar a aluna com a menor nota,sera necessario o método .shift em .nome
+
+console.log(aprovadas(alunas))
+console.log('    ')
+console.log(reprovadas(alunas))
+console.log('    ')
+console.log(objetoAluna(alunas))
+console.log('    ')
+console.log(ordenar(alunas))
 
 
 

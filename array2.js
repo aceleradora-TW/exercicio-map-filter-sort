@@ -11,14 +11,22 @@ const alunas = [
     { nome: "Jane Kelly", prova: { p1: 7, p2: 5.5, p3: 9.1 } },
 ]
 
+const formataNumero = numero => parseFloat(numero).toFixed(1)
 // formula para calculo da media
-const media = ({p1, p2, p3}) => (p1 + p2 + p3) / 3
+const media = ({ p1, p2, p3 }) => (p1 + p2 + p3) / 3
+
+const mediaTotal = alunas.map(aluna => media(aluna.prova))
+const somaMedia = mediaTotal.reduce(
+    (valor1, valor2) => valor1 + valor2
+)
+//console.log(somaMedia)
+const mediaDaTurma = somaMedia / alunas.length
 
 // verificação da aluna, se a media foir maior ou igual a 7, retorna true, se não, false
-const aprovada = prova => media(prova) >= 7 
+const aprovada = prova => media(prova) >= 7
 
 // verificação da aluna, se a media for menor ou igual a 7, retorna true, se não, false
-const reprovada = prova => media(prova) < 7 
+const reprovada = prova => media(prova) < 7
 
 // com base na verificação da função aprovada, retorna o nome da aluna com nota maior que 7
 const aprovadas = alunas => alunas.filter(aluna => aprovada(aluna.prova)).map(aluna => aluna.nome)
@@ -26,26 +34,35 @@ const reprovadas = alunas => alunas.filter(aluna => reprovada(aluna.prova)).map(
 
 const objetoAluna = alunas => alunas.map(aluna => ({
     nome: aluna.nome,
-    media: media(aluna.prova),
+    media: formataNumero(media(aluna.prova)),
     aprovada: aprovada(aluna.prova)
 }))
 
-
 const ordenar = alunas => objetoAluna(alunas).sort((a, b) => a.media - b.media)
 
-// para pegar a aluna com a maior nota,sera necessario o método .pop em .nome
+// para pegar a aluna com a maior nota 
+const maiorMedia = ordenar(alunas).pop().nome
 
-// para pegar a aluna com a menor nota,sera necessario o método .shift em .nome
+// para pegar a aluna com a menor nota 
+const menorMedia = ordenar(alunas).shift().nome
 
+console.log("Alunas aprovadas: ");
 console.log(aprovadas(alunas))
 console.log('    ')
+console.log("Alunas reprovadas: ");
 console.log(reprovadas(alunas))
 console.log('    ')
+console.log("Array de objetos: ");
 console.log(objetoAluna(alunas))
 console.log('    ')
-console.log(ordenar(alunas))
-
-
+console.log("Maior media da turma: ");
+console.log(maiorMedia)
+console.log('    ')
+console.log("Menor media da turma: ");
+console.log(menorMedia)
+console.log('    ')
+console.log("Media da turma: ");
+console.log(formataNumero(mediaDaTurma))
 
 
 

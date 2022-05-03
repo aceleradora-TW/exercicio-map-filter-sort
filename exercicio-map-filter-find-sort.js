@@ -11,29 +11,29 @@ const alunas = [
     { nome: "Alessandra", prova: { p1: 1.4, p2: 2.7, p3: 6.9 } },
     { nome: "Jane Kelly", prova: { p1: 7, p2: 5.5, p3: 9.1 } },
 ]
-//1)  
-const medias = alunas.map(function(pontos){
-    const media = (pontos.prova.p1 + pontos.prova.p2 + pontos.prova.p3)/3
-    return media.toFixed(1)
-})
-console.log(medias)
-//2)
-function calc (media){
-    return media >= 7 
+//1)
+function media(notas) {
+    const medias = notas.map(function(pontos){
+        const media = calcularMedia(pontos.prova)
+        return Number(media.toFixed(1))      
+        //medias = ['7.1', '7.9', '8.1','9.0', '8.2', '5.5','7.1', '5.8', '3.7', '7.2']                  
+    }) 
+    return medias
+} 
+function calcularMedia(prova) {
+    return Number(((prova.p1 + prova.p2 + prova.p3)/3).toFixed(1))
+}
+
+function getAprovadas(alunas) {
+    const notasAlunas = alunas.map(aluna => {
+       return {
+           nome: aluna.nome,
+           nota: calcularMedia(aluna.prova)
+       }
+    })
+    const aprovadas = notasAlunas.filter(notaAluna => notaAluna.nota >= 7)
+    return aprovadas.map(aprovada => aprovada.nome)
     
 }
 
-console.log(medias.filter(calc))
-
-//console.log (notas)
-
-/*function nomesAp (nome, nota){
-    var nota = medias.map(function (){
-
-    })
-    var aprov = alunas.map(function(nomes){
-        return nomes.nome
-    })
-
-}*/
-
+console.log(getAprovadas(alunas))

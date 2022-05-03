@@ -11,9 +11,29 @@ const alunas = [
     { nome: "Alessandra", prova: { p1: 1.4, p2: 2.7, p3: 6.9 } },
     { nome: "Jane Kelly", prova: { p1: 7, p2: 5.5, p3: 9.1 } },
 ]
-//1)
+//1)  
 const medias = alunas.map(function(pontos){
     const media = (pontos.prova.p1 + pontos.prova.p2 + pontos.prova.p3)/3
     return media.toFixed(1)
 })
 console.log(medias)
+//2)
+function calc (media){
+    return media >= 7 
+    
+}
+
+console.log(medias.filter(calc))
+
+//console.log (notas)
+
+/*function nomesAp (nome, nota){
+    var nota = medias.map(function (){
+
+    })
+    var aprov = alunas.map(function(nomes){
+        return nomes.nome
+    })
+
+}*/
+

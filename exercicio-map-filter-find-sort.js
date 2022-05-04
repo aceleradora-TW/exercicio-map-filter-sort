@@ -13,27 +13,81 @@ const alunas = [
 ]
 //1)
 function media(notas) {
-    const medias = notas.map(function(pontos){
+    const medias = notas.map(function(pontos){ 
         const media = calcularMedia(pontos.prova)
         return Number(media.toFixed(1))      
         //medias = ['7.1', '7.9', '8.1','9.0', '8.2', '5.5','7.1', '5.8', '3.7', '7.2']                  
     }) 
     return medias
 } 
+
 function calcularMedia(prova) {
     return Number(((prova.p1 + prova.p2 + prova.p3)/3).toFixed(1))
-}
-
+} //talvez uma funcao de media que retorne true ou flase tipo essa aqui da linha 24
+/*
 function getAprovadas(alunas) {
+    const notasAlunas = alunas.map(aluna => {
+       return {
+           nome: aluna.nome,
+           nota: calcularMedia(aluna.prova)
+       } 
+    })
+    const aprovadas = notasAlunas.filter(notaAluna => notaAluna.nota >= 7)
+    return aprovadas.map(aprovada => aprovada.nome)
+    
+} 
+
+//console.log(getAprovadas(alunas))
+
+function getReprovadas(alunas) {
     const notasAlunas = alunas.map(aluna => {
        return {
            nome: aluna.nome,
            nota: calcularMedia(aluna.prova)
        }
     })
-    const aprovadas = notasAlunas.filter(notaAluna => notaAluna.nota >= 7)
-    return aprovadas.map(aprovada => aprovada.nome)
+    const reprovadas = notasAlunas.filter(notaAluna => notaAluna.nota < 7)
+    return reprovadas.map(reprovadas => reprovadas.nome)
     
 }
 
-console.log(getAprovadas(alunas))
+//console.log(getReprovadas(alunas))
+*
+
+/*
+function verificarAprovacao(media){
+    const objetoAluna 
+    const mediaVerificacao = media.map(aluna => {
+        if(aluna >= 7){  
+            return true
+        }
+        return false
+    }) 
+    const verificacaoAprovada = mediaVerificacao.map()
+
+    return mediaVerificacao 
+}
+console.log(verificarAprovacao(media(alunas)))
+*/
+/*
+function impressaoObjeto(alunas){
+    const objeto = alunas.map(aluna => {
+        return {
+            nome: aluna.nome,
+            media: calcularMedia(aluna.prova),
+            aprovada: calcularMedia(aluna.prova) >= 7
+        } 
+    }) 
+    return objeto 
+}
+
+console.log(impressaoObjeto(alunas))
+*/
+
+function mediaAlta(){
+    const maiorMedia = media(alunas).sort()
+    return maiorMedia[maiorMedia.length-1]
+}
+console.log(mediaAlta(alunas))
+
+// 

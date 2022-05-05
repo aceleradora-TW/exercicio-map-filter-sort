@@ -70,35 +70,6 @@ function verificarAprovacao(media){
 console.log(verificarAprovacao(media(alunas)))
 */
 
-// function impressaoObjeto(alunas){
-//     const objeto = alunas.map(aluna => {
-//         return {
-//             nome: aluna.nome,
-//             media: calcularMedia(aluna.prova),
-//             aprovada: calcularMedia(aluna.prova) >= 7
-//         } 
-//     }) 
-//     return objeto 
-// }
-
- //console.log(impressaoObjeto(alunas))
-
-// function mediaAlta(){
-//     const maiorMedia = media(alunas).sort()
-//     return maiorMedia[maiorMedia.length-1]
-// }
-//  console.log(mediaAlta(alunas))
-
-function maiorNotaAluna(alunas){
-    const objeto  = alunas.sort()
-    objeto.media.sort()
-    return objeto 
-}
-// console.log(media())
-
-
-
-
 function impressaoObjeto(alunas){
     const objeto = alunas.map(aluna => {
         return {
@@ -107,6 +78,21 @@ function impressaoObjeto(alunas){
             aprovada: calcularMedia(aluna.prova) >= 7
         } 
     }) 
-    return objeto.sort() 
+    return objeto 
 }
-console.log(impressaoObjeto(alunas))
+
+ //console.log(impressaoObjeto(alunas))
+
+function mediaAlta(){
+    const maiorMedia = media(alunas).sort()
+    return maiorMedia[maiorMedia.length-1]
+}
+//  console.log(mediaAlta(alunas))
+
+// function maiorNotaAluna(alunas){
+//     const objeto  = alunas.sort()
+//     objeto.media.sort()
+//     return objeto 
+// }
+// console.log(media())
+

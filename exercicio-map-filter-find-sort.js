@@ -11,7 +11,7 @@ const alunas = [
     { nome: "Alessandra", prova: { p1: 1.4, p2: 2.7, p3: 6.9 } },
     { nome: "Jane Kelly", prova: { p1: 7, p2: 5.5, p3: 9.1 } },
 ]
-//1)
+//1) FUNCAO PARA CALCUCAR MEDIAS DAS ALUNAS
 function media(notas) {
     const medias = notas.map(function(pontos){ 
         const media = calcularMedia(pontos.prova)
@@ -20,55 +20,50 @@ function media(notas) {
     }) 
     return medias
 } 
+console.log(media(alunas))
 
+//==================================================================
+
+// FUNCAO CORINGA PARA CALCULAR MEDIAS
 function calcularMedia(prova) {
     return Number(((prova.p1 + prova.p2 + prova.p3)/3).toFixed(1))
 } //talvez uma funcao de media que retorne true ou flase tipo essa aqui da linha 24
 
-// function getAprovadas(alunas) {
-//     const notasAlunas = alunas.map(aluna => {
-//        return {
-//            nome: aluna.nome,
-//            nota: calcularMedia(aluna.prova)
-//        } 
-//     })
-//     const aprovadas = notasAlunas.filter(notaAluna => notaAluna.nota >= 7)
-//     return aprovadas.map(aprovada => aprovada.nome)
+//==================================================================
+
+//2) Fazer uma função que retorne um array de nomes das aprovadas
+function getAprovadas(alunas) {
+    const notasAlunas = alunas.map(aluna => {
+       return {
+           nome: aluna.nome,
+           nota: calcularMedia(aluna.prova)
+       } 
+    })
+    const aprovadas = notasAlunas.filter(notaAluna => notaAluna.nota >= 7)
+    return aprovadas.map(aprovada => aprovada.nome)
     
-// } 
-
-//  console.log(getAprovadas(alunas))
-
-// function getReprovadas(alunas) {
-//     const notasAlunas = alunas.map(aluna => {
-//        return {
-//            nome: aluna.nome,
-//            nota: calcularMedia(aluna.prova)
-//        }
-//     })
-//     const reprovadas = notasAlunas.filter(notaAluna => notaAluna.nota < 7)
-//     return reprovadas.map(reprovadas => reprovadas.nome)
-    
-// }
-
-//console.log(getReprovadas(alunas))
-
-
-/*
-function verificarAprovacao(media){
-    const objetoAluna 
-    const mediaVerificacao = media.map(aluna => {
-        if(aluna >= 7){  
-            return true
-        }
-        return false
-    }) 
-    const verificacaoAprovada = mediaVerificacao.map()
-
-    return mediaVerificacao 
 }
-console.log(verificarAprovacao(media(alunas)))
-*/
+console.log(getAprovadas(alunas))
+
+//==================================================================
+
+//3) Fazer uma função que retorne um array de nome das reprovadas
+function getReprovadas(alunas) {
+    const notasAlunas = alunas.map(aluna => {
+       return {
+           nome: aluna.nome,
+           nota: calcularMedia(aluna.prova)
+       }
+    })
+    const reprovadas = notasAlunas.filter(notaAluna => notaAluna.nota < 7)
+    return reprovadas.map(reprovadas => reprovadas.nome)
+    
+}
+console.log(getReprovadas(alunas))
+
+//==================================================================
+
+//4) Fazer uma função que retorne um array de objetos:
 
 function impressaoObjeto(alunas){
     const objeto = alunas.map(aluna => {
@@ -80,19 +75,48 @@ function impressaoObjeto(alunas){
     }) 
     return objeto 
 }
+console.log(impressaoObjeto(alunas))
 
- //console.log(impressaoObjeto(alunas))
-
-function mediaAlta(){
-    const maiorMedia = media(alunas).sort()
-    return maiorMedia[maiorMedia.length-1]
+//==================================================================
+function ordenarMedia(){
+    const listaOrdenada = media(alunas).sort()
+    return listaOrdenada
 }
-//  console.log(mediaAlta(alunas))
+console.log(ordenarMedia())
 
-// function maiorNotaAluna(alunas){
-//     const objeto  = alunas.sort()
-//     objeto.media.sort()
-//     return objeto 
-// }
-// console.log(media())
+//==================================================================
 
+//6) Fazer uma função que retorne o nome da aluna com maior nota
+function alunaMaiorMedia(alunas) {
+    const getMediaAlta = ordenarMedia()
+    const aprovada = impressaoObjeto(alunas).filter(aluna=>{if(aluna.media === getMediaAlta[getMediaAlta.length-1])
+    return aluna.nome})
+
+    return aprovada[0].nome
+}
+console.log(alunaMaiorMedia(alunas))
+
+//==================================================================
+
+//7) Fazer uma função que retorne o nome da aluna com menor nota
+function alunaMenorMedia(alunas) {
+    const getMediaAlta = ordenarMedia()
+    const aprovada = impressaoObjeto(alunas).filter(aluna=>{if(aluna.media === getMediaAlta[0])
+    return aluna.nome})
+
+    return aprovada[0].nome
+}
+console.log(alunaMenorMedia(alunas))
+
+//==================================================================
+
+//8) Fazer uma função que retorne a media de toda a turma
+function mediaTurma(alunas) {
+    
+    const getMedia = media(alunas).reduce(function(a,b){
+        return a + b})
+    const resultMedia = getMedia / media(alunas).length        
+    return resultMedia.toFixed(1)
+}
+
+console.log(mediaTurma(alunas))

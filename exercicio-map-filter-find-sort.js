@@ -48,6 +48,11 @@ const listaDeAlunas = alunas.map((aluna, indice) => {
 })
 console.log(listaDeAlunas)
 
+const maiorNota = () => {
+    
+}
+//const found = array1.find(element => element > 10);
+
 // console.log(listaDeAlunas(alunas))
 
 // const listaDeAlunas = () => {

@@ -48,9 +48,16 @@ const listaDeAlunas = alunas.map((aluna, indice) => {
 })
 console.log(listaDeAlunas)
 
-const maiorNota = () => {
-    
-}
+// function ordenaNota (mediaA, mediaB){
+//    return mediaA - mediaB
+// }
+// const maiorNota = (aluna) => {
+//     const listaDeMedias = aluna.media.sort(ordenaNota)
+//     console.log(listaDeMedias)
+// }
+// maiorNota(listaDeAlunas)
+
+// var elMaximo = [4,3,6,9].sort(function(a, b){return b - a;})[0];
 //const found = array1.find(element => element > 10);
 
 // console.log(listaDeAlunas(alunas))

@@ -48,26 +48,32 @@ const listaDeAlunas = alunas.map((aluna, indice) => {
 })
 console.log(listaDeAlunas)
 
-// function ordenaNota (mediaA, mediaB){
-//    return mediaA - mediaB
-// }
-// const maiorNota = (aluna) => {
-//     const listaDeMedias = aluna.media.sort(ordenaNota)
-//     console.log(listaDeMedias)
-// }
-// maiorNota(listaDeAlunas)
+const maiorNota = mediaAlunas.reduce(function(mediaA, mediaB) {
+    return Math.max(mediaA, mediaB)
+})
 
-// var elMaximo = [4,3,6,9].sort(function(a, b){return b - a;})[0];
-//const found = array1.find(element => element > 10);
+const buscaAlunaMaiorNota = () => {
+    const alunaMaiorNota = alunas.filter((aluna, indice) => mediaAlunas[indice] === maiorNota)
+    const nomeAlunaMaiorNota = alunaMaiorNota.map((aluna) => aluna.nome)
+    return nomeAlunaMaiorNota
+}
+console.log(buscaAlunaMaiorNota())
 
-// console.log(listaDeAlunas(alunas))
+const menorNota = mediaAlunas.reduce(function(mediaA, mediaB) {
+    return Math.min(mediaA, mediaB)
+})
+const buscaAlunaMenorNota = () => {
+    const alunaMenorNota = alunas.filter((aluna, indice) => mediaAlunas[indice] === menorNota)
+    const nomeAlunaMenorNota = alunaMenorNota.map((aluna) => aluna.nome)
+    return nomeAlunaMenorNota
+}
+console.log(buscaAlunaMenorNota())
 
-// const listaDeAlunas = () => {
-//     const listaAlunas = alunas.map((aluna) => {
-//         const alunaObj = {
-//             nome: aluna.nome
-//         }
-//         return alunaObj 
-//     })
-//     console.log(listaAlunas) 
-// }
+const somaMediasdaTurma = mediaAlunas.reduce(function(mediaA, mediaB){
+    return mediaA + mediaB
+})
+function mediaDaTurma(){
+    const mediaDaTurma = somaMediasdaTurma / mediaAlunas.length
+    return parseFloat(mediaDaTurma.toFixed(1))
+}
+console.log(mediaDaTurma(mediaAlunas))

@@ -12,68 +12,71 @@ const alunas = [
     { nome: "Jane Kelly", prova: { p1: 7, p2: 5.5, p3: 9.1 } },
 ]
 
-const mediaAlunas = alunas.map((aluna) => {
-    let mediaAlunas = (aluna.prova.p1 + aluna.prova.p2 + aluna.prova.p3) / 3
-    return parseFloat(mediaAlunas.toFixed(1))
-});
-console.log(mediaAlunas)
+const calcularMedia = (prova) => {
+    //calcula a media das provas
+    const media = (prova.p1 + prova.p2 + prova.p3) / 3
+    return parseFloat(media.toFixed(1))
+}
+const calculaMediaAlunas = (listaDeAlunas) => {
+    //percorrer a listaDeAlunas e calcular a media para cada aluna
+    return listaDeAlunas.map(aluna => calcularMedia(aluna.prova))
+}
+console.log(calculaMediaAlunas(alunas))
 
-const buscaAlunasAprovadas = () => {
-    const alunasAprovadas = alunas.filter((aluna, indice) => mediaAlunas[indice] >= 7)
-    const nomesAlunasAprovadas = alunasAprovadas.map((aluna) => aluna.nome)
-    return nomesAlunasAprovadas
+const buscaAlunasAprovadas = (listaDeAlunas) => {
+    const alunasAprovadas = listaDeAlunas.filter(aluna => calcularMedia(aluna.prova) >= 7)
+    return alunasAprovadas.map(aluna => aluna.nome)
 }
 console.log(buscaAlunasAprovadas(alunas))
 
-const buscaAlunasReprovadas = () => {
-    const alunasReprovadas = alunas.filter((aluna, indice) => mediaAlunas[indice] < 7)
-    const nomesAlunasReprovadas = alunasReprovadas.map((aluna) => aluna.nome)
-    return nomesAlunasReprovadas
+const buscaAlunasReprovadas = (listaDeAlunas) => {
+    const alunasReprovadas = listaDeAlunas.filter(aluna => calcularMedia(aluna.prova) < 7)
+    return alunasReprovadas.map(aluna => aluna.nome)
 }
 console.log(buscaAlunasReprovadas(alunas))
 
-const listaDeAlunas = alunas.map((aluna, indice) => {
-    let aprovada = true
-    if(mediaAlunas[indice] >= 7){
-        aprovada = true
-    } else {
-        aprovada = false
-    }
-    const alunaObj = {
+const listaDeAlunasObj = (listaDeAlunas) => {
+    return listaDeAlunas.map(aluna => alunaObj = {
         nome: aluna.nome,
-        media: mediaAlunas[indice],
-        aprovada: aprovada
-    }
-    return alunaObj 
-})
-console.log(listaDeAlunas)
-
-const maiorNota = mediaAlunas.reduce(function(mediaA, mediaB) {
-    return Math.max(mediaA, mediaB)
-})
-
-const buscaAlunaMaiorNota = () => {
-    const alunaMaiorNota = alunas.filter((aluna, indice) => mediaAlunas[indice] === maiorNota)
-    const nomeAlunaMaiorNota = alunaMaiorNota.map((aluna) => aluna.nome)
-    return nomeAlunaMaiorNota
+        media: calcularMedia(aluna.prova),
+        aprovada: calcularMedia(aluna.prova) >= 7 ? true : false
+    })
 }
-console.log(buscaAlunaMaiorNota())
+console.log(listaDeAlunasObj(alunas))
 
-const menorNota = mediaAlunas.reduce(function(mediaA, mediaB) {
-    return Math.min(mediaA, mediaB)
-})
-const buscaAlunaMenorNota = () => {
-    const alunaMenorNota = alunas.filter((aluna, indice) => mediaAlunas[indice] === menorNota)
-    const nomeAlunaMenorNota = alunaMenorNota.map((aluna) => aluna.nome)
-    return nomeAlunaMenorNota
+const calcularMaiorNota = (notas) => {
+    return notas.reduce(function(mediaA, mediaB) { return Math.max(mediaA, mediaB) })
 }
-console.log(buscaAlunaMenorNota())
 
-const somaMediasdaTurma = mediaAlunas.reduce(function(mediaA, mediaB){
-    return mediaA + mediaB
-})
-function mediaDaTurma(){
-    const mediaDaTurma = somaMediasdaTurma / mediaAlunas.length
+const buscaAlunaMaiorNota = (listaDeAlunas) => {
+    const mediaAlunas = calculaMediaAlunas(listaDeAlunas)
+    const alunaMaiorNota = listaDeAlunas.filter(aluna => calcularMedia(aluna.prova) === calcularMaiorNota(mediaAlunas))
+    return alunaMaiorNota.map(aluna => aluna.nome)
+}
+console.log(buscaAlunaMaiorNota(alunas))
+
+const calcularMenorNota = (notas) => {
+    return notas.reduce(function(mediaA, mediaB) { return Math.min(mediaA, mediaB) })
+}
+
+const buscaAlunaMenorNota = (listaDeAlunas) => {
+    const mediaAlunas = calculaMediaAlunas(listaDeAlunas)
+    const alunaMenorNota = listaDeAlunas.filter(aluna => calcularMedia(aluna.prova) === calcularMenorNota(mediaAlunas))
+    return alunaMenorNota.map(aluna => aluna.nome)
+}
+console.log(buscaAlunaMenorNota(alunas))
+
+const calcularSomaMedias = (notas) => {
+    return notas.reduce(function(mediaA, mediaB){ return mediaA + mediaB })
+}
+
+const calcularMediaDaTurma = (listaDeAlunas) => {
+    //receber um array de alunas
+    //calcular a media de cada uma das alunas
+    //calcular e media da turma
+    const mediaAlunas = calculaMediaAlunas(listaDeAlunas)
+    const somaDasMedias = calcularSomaMedias(mediaAlunas)
+    const mediaDaTurma = somaDasMedias / mediaAlunas.length
     return parseFloat(mediaDaTurma.toFixed(1))
 }
-console.log(mediaDaTurma(mediaAlunas))
+console.log(calcularMediaDaTurma(alunas))

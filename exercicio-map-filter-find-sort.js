@@ -10,4 +10,13 @@ const alunas = [
     { nome: "Jaqueline", prova: { p1: 3.4, p2: 7.2, p3: 6.8 } },
     { nome: "Alessandra", prova: { p1: 1.4, p2: 2.7, p3: 6.9 } },
     { nome: "Jane Kelly", prova: { p1: 7, p2: 5.5, p3: 9.1 } },
+
 ]
+
+function medias(notas){
+    const media = notas.map(nota => ((nota.prova.p1 + nota.prova.p2 + nota.prova.p3) / 3).toFixed(1))
+    
+    return media
+}
+
+console.log(medias(alunas))

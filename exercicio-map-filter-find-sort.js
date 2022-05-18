@@ -27,15 +27,17 @@ function nomesAprovadas(nomesAlunas){
     // let funcaoMedias = medias(alunas) 
     // let listaNomes = nomesAlunas.map(nomeAprovadas => nomeAprovadas.nome)
 
-    const novoArrayAlunasAprovadas = []
-    let filtraMedias = nomesAlunas.filter((nota) => {
-        /*if( >= 7){
-            return novoArrayAlunasAprovadas.push(nota.nome)
-        }*/
+    //const novoArrayAlunasAprovadas = []
+    let listaNomes = nomesAlunas.map((nomeAlunaAprovada) => {
+        return {
+            nome: nomeAlunaAprovada.prova,
+            // nota: medias(nomeAlunaAprovada)
+        }
+        
     })
-    
-    return novoArrayAlunasAprovadas
+    return listaNomes
 }
+
 console.log(nomesAprovadas(alunas))
 
 

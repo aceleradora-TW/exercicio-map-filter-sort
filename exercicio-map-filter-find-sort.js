@@ -34,7 +34,18 @@ function nomesAprovadas(nomesAlunas) {
     return listaNomes.map(i => i.nome)
 }
 
-console.log(nomesAprovadas(alunas))
-
+//console.log(nomesAprovadas(alunas))
 
 // retorna um array com o nome das aprovadas
+function nomesReprovadas(nomesAlunas) {
+
+    let encontraReprovadas = nomesAlunas.filter(i => {
+        let media = ((i.prova.p1 + i.prova.p2 + i.prova.p3) / 3).toFixed(1)
+        if(media < 7){
+            return media;
+        }
+    } 
+    )
+    return encontraReprovadas.map(j => j.nome)
+}
+console.log(nomesReprovadas(alunas))

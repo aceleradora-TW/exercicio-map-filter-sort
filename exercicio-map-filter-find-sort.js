@@ -33,7 +33,6 @@ function nomesAprovadas(nomesAlunas) {
     })
     return listaNomes.map(i => i.nome)
 }
-
 //console.log(nomesAprovadas(alunas))
 
 // retorna um array com o nome das aprovadas
@@ -48,4 +47,33 @@ function nomesReprovadas(nomesAlunas) {
     )
     return encontraReprovadas.map(j => j.nome)
 }
-console.log(nomesReprovadas(alunas))
+//console.log(nomesReprovadas(alunas))
+
+
+const verificaMedia = ({p1, p2, p3}) => ((p1 + p2 + p3) / 3).toFixed(1)
+
+function aprovadaOuReprovada(media){
+    if(media >= 7){
+        return true
+    } else{
+        return false
+    }
+}
+
+
+// função que retorna um array de objetos
+function arrayObjetos(arrayAlunas){
+
+    //let nomeAluna = arrayAlunas.map(i => i.nome)
+    //let mediaAluna = arrayAlunas.map(nota => ((nota.prova.p1 + nota.prova.p2 + nota.prova.p3) / 3).toFixed(1))
+    let aprovada = arrayAlunas.map(alunas => ({
+
+        nome: alunas.nome,
+        media: verificaMedia(alunas.prova),
+        aprovada: aprovadaOuReprovada(verificaMedia(alunas.prova))
+
+    }))
+
+    return aprovada
+}
+console.log(arrayObjetos(alunas))

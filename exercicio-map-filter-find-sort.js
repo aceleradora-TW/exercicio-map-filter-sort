@@ -14,7 +14,7 @@ const alunas = [
 ]
 
 // retorna um array com todas as medias
-function medias(notas){
+function medias(notas) {
     const media = notas.map(nota => ((nota.prova.p1 + nota.prova.p2 + nota.prova.p3) / 3).toFixed(1))
 
     return media
@@ -22,20 +22,16 @@ function medias(notas){
 //console.log(medias(alunas))
 
 // retorna um array com o nome das aprovadas
-function nomesAprovadas(nomesAlunas){
+function nomesAprovadas(nomesAlunas) {
 
-    // let funcaoMedias = medias(alunas) 
-    // let listaNomes = nomesAlunas.map(nomeAprovadas => nomeAprovadas.nome)
+    let listaNomes = nomesAlunas.filter((i) => {
+        let medias = ((i.prova.p1 + i.prova.p2 + i.prova.p3) / 3).toFixed(1)
 
-    //const novoArrayAlunasAprovadas = []
-    let listaNomes = nomesAlunas.map((nomeAlunaAprovada) => {
-        return {
-            nome: nomeAlunaAprovada.prova,
-            // nota: medias(nomeAlunaAprovada)
+        if (medias >= 7) {
+            return i.nome
         }
-        
     })
-    return listaNomes
+    return listaNomes.map(i => i.nome)
 }
 
 console.log(nomesAprovadas(alunas))

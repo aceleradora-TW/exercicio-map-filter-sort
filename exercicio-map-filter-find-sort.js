@@ -21,6 +21,7 @@ function medias(notas) {
 }
 //console.log(medias(alunas))
 
+
 // retorna um array com o nome das aprovadas
 function nomesAprovadas(nomesAlunas) {
 
@@ -49,8 +50,13 @@ function nomesReprovadas(nomesAlunas) {
 }
 //console.log(nomesReprovadas(alunas))
 
-
+// forma alternativa da função verificaMedias utilizando arrow function
 const verificaMedia = ({p1, p2, p3}) => ((p1 + p2 + p3) / 3).toFixed(1)
+
+function verificaMedias({p1, p2, p3}){
+    return ((p1 + p2 + p3) / 3).toFixed(1)
+}
+
 
 function aprovadaOuReprovada(media){
     if(media >= 7){
@@ -64,16 +70,29 @@ function aprovadaOuReprovada(media){
 // função que retorna um array de objetos
 function arrayObjetos(arrayAlunas){
 
-    //let nomeAluna = arrayAlunas.map(i => i.nome)
-    //let mediaAluna = arrayAlunas.map(nota => ((nota.prova.p1 + nota.prova.p2 + nota.prova.p3) / 3).toFixed(1))
     let aprovada = arrayAlunas.map(alunas => ({
 
         nome: alunas.nome,
-        media: verificaMedia(alunas.prova),
-        aprovada: aprovadaOuReprovada(verificaMedia(alunas.prova))
+        media: verificaMedias(alunas.prova),
+        aprovada: aprovadaOuReprovada(verificaMedias(alunas.prova))
 
     }))
 
     return aprovada
 }
 console.log(arrayObjetos(alunas))
+
+// função que retorna o nome da aluna com maior nota
+function maiorNota(mediaAluna){
+    let arrayMedias = mediaAluna // funçao aprovadas
+    let ordenaMedias = arrayMedias.map((a, b) => {
+        
+        return a.media > b.media
+
+    }
+    )
+
+    return ordenaMedias
+
+}
+//console.log(maiorNota(arrayObjetos(alunas)))

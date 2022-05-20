@@ -1,4 +1,3 @@
-
 const alunas = [
     { nome: "Ashley", prova: { p1: 5.6, p2: 6.7, p3: 9 } },
     { nome: "Sabrina", prova: { p1: 6.3, p2: 7.5, p3: 10 } },
@@ -10,6 +9,7 @@ const alunas = [
     { nome: "Jaqueline", prova: { p1: 3.4, p2: 7.2, p3: 6.8 } },
     { nome: "Alessandra", prova: { p1: 1.4, p2: 2.7, p3: 6.9 } },
     { nome: "Jane Kelly", prova: { p1: 7, p2: 5.5, p3: 9.1 } },
+    { nome: "Janine", prova: { p1: 8, p2: 8.5, p3: 9.1 } },
 
 ]
 
@@ -19,8 +19,6 @@ const medias = (notas) => {
 
     return media
 }
-
-
 
 // retorna um array com o nome das aprovadas
 const nomesAprovadas = (nomesAlunas) => {
@@ -41,16 +39,16 @@ const nomesReprovadas = (nomesAlunas) => {
 
     let encontraReprovadas = nomesAlunas.filter(media => {
         let medias = ((media.prova.p1 + media.prova.p2 + media.prova.p3) / 3).toFixed(1)
-        if(medias < 7){
+        if (medias < 7) {
             return medias;
         }
-    } 
+    }
     )
     return encontraReprovadas.map(aluna => aluna.nome)
 }
 
 
-const verificaMedias = ({p1, p2, p3}) => ((p1 + p2 + p3) / 3).toFixed(1)
+const verificaMedias = ({ p1, p2, p3 }) => ((p1 + p2 + p3) / 3).toFixed(1)
 
 
 const aprovadaOuReprovada = (media) => (media >= 7 ? true : false)

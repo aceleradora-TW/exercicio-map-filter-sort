@@ -97,3 +97,10 @@ function menorNota(mediaAluna){
 
 }
 //console.log(menorNota(arrayObjetos(alunas)))
+
+// funcão que retorna a media da turma
+function mediaTurma(medias){
+    let arrayDeMedias = medias.reduce((acumulador, nota) => acumulador + nota)
+    return arrayDeMedias
+}
+console.log(mediaTurma(medias(alunas)))

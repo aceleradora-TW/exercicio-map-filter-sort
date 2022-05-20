@@ -80,19 +80,20 @@ function arrayObjetos(arrayAlunas){
 
     return aprovada
 }
-console.log(arrayObjetos(alunas))
+// console.log(arrayObjetos(alunas))
 
 // função que retorna o nome da aluna com maior nota
 function maiorNota(mediaAluna){
-    let arrayMedias = mediaAluna // funçao aprovadas
-    let ordenaMedias = arrayMedias.map((a, b) => {
-        
-        return a.media > b.media
-
-    }
-    )
-
-    return ordenaMedias
-
+    let ordenaMedias = mediaAluna.sort((a, b) => a.media - b.media)
+    return ordenaMedias.pop().nome
 }
 //console.log(maiorNota(arrayObjetos(alunas)))
+
+// função que retorna o nome da aluna com menor nota
+function menorNota(mediaAluna){
+
+    let notaAluna = mediaAluna.sort((a, b) => b.media - a.media)
+    return notaAluna.pop().nome
+
+}
+//console.log(menorNota(arrayObjetos(alunas)))

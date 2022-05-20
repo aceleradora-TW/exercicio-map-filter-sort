@@ -14,7 +14,7 @@ const alunas = [
 ]
 
 // retorna um array com todas as medias
-function medias(notas) {
+const medias = (notas) => {
     const media = notas.map(nota => parseFloat(((nota.prova.p1 + nota.prova.p2 + nota.prova.p3) / 3).toFixed(1)))
 
     return media
@@ -23,7 +23,7 @@ function medias(notas) {
 
 
 // retorna um array com o nome das aprovadas
-function nomesAprovadas(nomesAlunas) {
+const nomesAprovadas = (nomesAlunas) => {
 
     let listaNomes = nomesAlunas.filter((i) => {
         let medias = ((i.prova.p1 + i.prova.p2 + i.prova.p3) / 3).toFixed(1)
@@ -34,11 +34,10 @@ function nomesAprovadas(nomesAlunas) {
     })
     return listaNomes.map(i => i.nome)
 }
-//console.log(nomesAprovadas(alunas))
 
 
 // retorna um array com o nome das aprovadas
-function nomesReprovadas(nomesAlunas) {
+const nomesReprovadas = (nomesAlunas) => {
 
     let encontraReprovadas = nomesAlunas.filter(i => {
         let media = ((i.prova.p1 + i.prova.p2 + i.prova.p3) / 3).toFixed(1)
@@ -51,15 +50,10 @@ function nomesReprovadas(nomesAlunas) {
 }
 
 
-// forma alternativa da função verificaMedias utilizando arrow function
-const verificaMedia = ({p1, p2, p3}) => ((p1 + p2 + p3) / 3).toFixed(1)
-
-function verificaMedias({p1, p2, p3}){
-    return ((p1 + p2 + p3) / 3).toFixed(1)
-}
+const verificaMedias = ({p1, p2, p3}) => ((p1 + p2 + p3) / 3).toFixed(1)
 
 
-function aprovadaOuReprovada(media){
+const aprovadaOuReprovada = (media) => {
     if(media >= 7){
         return true
     } else{
@@ -69,7 +63,7 @@ function aprovadaOuReprovada(media){
 
 
 // função que retorna um array de objetos
-function arrayObjetos(arrayAlunas){
+const arrayObjetos = (arrayAlunas) => {
 
     let aprovada = arrayAlunas.map(alunas => ({
 
@@ -84,14 +78,14 @@ function arrayObjetos(arrayAlunas){
 
 
 // função que retorna o nome da aluna com maior nota
-function maiorNota(mediaAluna){
+const maiorNota = (mediaAluna) => {
     let ordenaMedias = mediaAluna.sort((a, b) => a.media - b.media)
     return ordenaMedias.pop().nome
 }
 
 
 // função que retorna o nome da aluna com menor nota
-function menorNota(mediaAluna){
+const menorNota = (mediaAluna) => {
 
     let notaAluna = mediaAluna.sort((a, b) => b.media - a.media)
     return notaAluna.pop().nome
@@ -100,13 +94,13 @@ function menorNota(mediaAluna){
 
 
 // funcão que retorna a media da turma
-function mediaTurma(medias){
+const mediaTurma = (medias) => {
     let arrayDeMedias = medias.reduce((acumulador, nota) => acumulador + nota)
 
     return (arrayDeMedias / medias.length).toFixed(1)
 }
 
-function mostraTela(){
+const mostraTela = () => {
     return {
         alunas: (medias(alunas)),
         aprovadas: (nomesAprovadas(alunas)),

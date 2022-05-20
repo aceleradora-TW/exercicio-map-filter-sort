@@ -25,41 +25,35 @@ const medias = (notas) => {
 // retorna um array com o nome das aprovadas
 const nomesAprovadas = (nomesAlunas) => {
 
-    let listaNomes = nomesAlunas.filter((i) => {
-        let medias = ((i.prova.p1 + i.prova.p2 + i.prova.p3) / 3).toFixed(1)
+    let listaNomes = nomesAlunas.filter((media) => {
+        let medias = ((media.prova.p1 + media.prova.p2 + media.prova.p3) / 3).toFixed(1)
 
         if (medias >= 7) {
-            return i.nome
+            return media.nome
         }
     })
-    return listaNomes.map(i => i.nome)
+    return listaNomes.map(media => media.nome)
 }
 
 
 // retorna um array com o nome das aprovadas
 const nomesReprovadas = (nomesAlunas) => {
 
-    let encontraReprovadas = nomesAlunas.filter(i => {
-        let media = ((i.prova.p1 + i.prova.p2 + i.prova.p3) / 3).toFixed(1)
-        if(media < 7){
-            return media;
+    let encontraReprovadas = nomesAlunas.filter(media => {
+        let medias = ((media.prova.p1 + media.prova.p2 + media.prova.p3) / 3).toFixed(1)
+        if(medias < 7){
+            return medias;
         }
     } 
     )
-    return encontraReprovadas.map(j => j.nome)
+    return encontraReprovadas.map(aluna => aluna.nome)
 }
 
 
 const verificaMedias = ({p1, p2, p3}) => ((p1 + p2 + p3) / 3).toFixed(1)
 
 
-const aprovadaOuReprovada = (media) => {
-    if(media >= 7){
-        return true
-    } else{
-        return false
-    }
-}
+const aprovadaOuReprovada = (media) => (media >= 7 ? true : false)
 
 
 // função que retorna um array de objetos
@@ -77,19 +71,10 @@ const arrayObjetos = (arrayAlunas) => {
 }
 
 
-// função que retorna o nome da aluna com maior nota
+// função que retorna o nome da aluna com maior e menor nota
 const maiorNota = (mediaAluna) => {
     let ordenaMedias = mediaAluna.sort((a, b) => a.media - b.media)
-    return ordenaMedias.pop().nome
-}
-
-
-// função que retorna o nome da aluna com menor nota
-const menorNota = (mediaAluna) => {
-
-    let notaAluna = mediaAluna.sort((a, b) => b.media - a.media)
-    return notaAluna.pop().nome
-
+    return ordenaMedias
 }
 
 
@@ -106,8 +91,8 @@ const mostraTela = () => {
         aprovadas: (nomesAprovadas(alunas)),
         reprovadas: (nomesReprovadas(alunas)),
         criaObjetos: (arrayObjetos(alunas)),
-        nomeAlunaMaiorNota: (maiorNota(arrayObjetos(alunas))),
-        nomeAlunaMenorNota: (menorNota(arrayObjetos(alunas))),
+        nomeAlunaMaiorNota: (maiorNota(arrayObjetos(alunas)).pop().nome),
+        nomeAlunaMenorNota: (maiorNota(arrayObjetos(alunas)).shift().nome),
         mediaTurma: (mediaTurma(medias(alunas)))
     }
 }

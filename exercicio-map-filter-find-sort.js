@@ -15,11 +15,11 @@ const alunas = [
 
 // retorna um array com todas as medias
 function medias(notas) {
-    const media = notas.map(nota => ((nota.prova.p1 + nota.prova.p2 + nota.prova.p3) / 3).toFixed(1))
+    const media = notas.map(nota => parseFloat(((nota.prova.p1 + nota.prova.p2 + nota.prova.p3) / 3).toFixed(1)))
 
     return media
 }
-//console.log(medias(alunas))
+
 
 
 // retorna um array com o nome das aprovadas
@@ -36,6 +36,7 @@ function nomesAprovadas(nomesAlunas) {
 }
 //console.log(nomesAprovadas(alunas))
 
+
 // retorna um array com o nome das aprovadas
 function nomesReprovadas(nomesAlunas) {
 
@@ -48,7 +49,7 @@ function nomesReprovadas(nomesAlunas) {
     )
     return encontraReprovadas.map(j => j.nome)
 }
-//console.log(nomesReprovadas(alunas))
+
 
 // forma alternativa da função verificaMedias utilizando arrow function
 const verificaMedia = ({p1, p2, p3}) => ((p1 + p2 + p3) / 3).toFixed(1)
@@ -80,14 +81,14 @@ function arrayObjetos(arrayAlunas){
 
     return aprovada
 }
-// console.log(arrayObjetos(alunas))
+
 
 // função que retorna o nome da aluna com maior nota
 function maiorNota(mediaAluna){
     let ordenaMedias = mediaAluna.sort((a, b) => a.media - b.media)
     return ordenaMedias.pop().nome
 }
-//console.log(maiorNota(arrayObjetos(alunas)))
+
 
 // função que retorna o nome da aluna com menor nota
 function menorNota(mediaAluna){
@@ -96,11 +97,24 @@ function menorNota(mediaAluna){
     return notaAluna.pop().nome
 
 }
-//console.log(menorNota(arrayObjetos(alunas)))
+
 
 // funcão que retorna a media da turma
 function mediaTurma(medias){
     let arrayDeMedias = medias.reduce((acumulador, nota) => acumulador + nota)
-    return arrayDeMedias
+
+    return (arrayDeMedias / medias.length).toFixed(1)
 }
-console.log(mediaTurma(medias(alunas)))
+
+function mostraTela(){
+    return {
+        alunas: (medias(alunas)),
+        aprovadas: (nomesAprovadas(alunas)),
+        reprovadas: (nomesReprovadas(alunas)),
+        criaObjetos: (arrayObjetos(alunas)),
+        nomeAlunaMaiorNota: (maiorNota(arrayObjetos(alunas))),
+        nomeAlunaMenorNota: (menorNota(arrayObjetos(alunas))),
+        mediaTurma: (mediaTurma(medias(alunas)))
+    }
+}
+console.log(mostraTela())

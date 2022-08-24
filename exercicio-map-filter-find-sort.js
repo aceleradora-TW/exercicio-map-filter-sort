@@ -11,7 +11,7 @@ const alunas = [
     { nome: "Jane Kelly", prova: { p1: 7, p2: 5.5, p3: 9.1 } },
 ]
 
-function media(){
+function mediaAlunas(){
     let provaMap = alunas.map((nome)=>{
         let provas = parseFloat(((nome.prova.p1+ nome.prova.p2+nome.prova.p3)/3).toFixed(1));
         let retornaNome = nome.nome;
@@ -42,7 +42,26 @@ const reprovada =()=>{
     console.table(nomesReprovada);
     return nomesReprovada;
 }
-
+const objetoFinal = () =>{
+    let objetoAlunas =[];
+    let aluna = {nome: "",
+        media : 0,
+        aprova: false};
+    mediaAlunas().filter((params)=>{
+        let nome = params.retornaNome;
+        let nota = params.provas;
+        if(params.provas >=7){
+            aluna ={nome:nome,media:nota,aprova:true}
+            objetoAlunas.push(aluna)
+        }else{
+            aluna = {nome:nome,media:nota,aprova:false}
+            objetoAlunas.push(aluna)
+        }
+    });
+    console.table(objetoAlunas);
+    return objetoAlunas;
+}
 //media();
 //aprovada();
 //reprovada();
+//objetoFinal();

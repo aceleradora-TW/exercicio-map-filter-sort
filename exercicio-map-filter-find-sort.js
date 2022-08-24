@@ -85,9 +85,21 @@ const menorNota = ()=>{
     console.log(menorAluna +" teve a menor nota");
     return menorAluna;
 }
+const mediaTurma = ()=>{
+    let media=0;
+    let count = 0;
+    let mediaMap = mediaAlunas().map((params)=>{
+        media += params.provas;
+        count++;
+    });
+    media = parseFloat((media/count).toFixed(1));
+    console.log(media);
+    return media;
+}
 //media();
 //aprovada();
 //reprovada();
 //objetoFinal();
 //maiorNota();
-menorNota();
+//menorNota();
+mediaTurma();

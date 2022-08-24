@@ -61,7 +61,33 @@ const objetoFinal = () =>{
     console.table(objetoAlunas);
     return objetoAlunas;
 }
+const maiorNota = () =>{
+    let maiorAluna;
+    let maiorNota = 0;
+    mediaAlunas().sort((params)=>{
+        if(params.provas> maiorNota){
+            maiorAluna = params.retornaNome;
+            maiorNota = params.provas;
+        }
+    });
+    console.log(maiorAluna +" teve a maior nota");
+    return maiorAluna;
+}
+const menorNota = ()=>{
+    let menorAluna;
+    let menorNota = 10;
+    mediaAlunas().sort((params)=>{
+        if(params.provas<menorNota){
+            menorAluna = params.retornaNome;
+            menorNota = params.provas;
+        }
+    });
+    console.log(menorAluna +" teve a menor nota");
+    return menorAluna;
+}
 //media();
 //aprovada();
 //reprovada();
 //objetoFinal();
+//maiorNota();
+menorNota();

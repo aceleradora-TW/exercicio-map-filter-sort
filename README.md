@@ -52,6 +52,7 @@ Saída:
 7) Fazer uma função que retorne o nome da aluna com menor nota
 8) Fazer uma função que retorne a media de toda a turma
 
+
 ## Observações
 Formula da média: `(a + b + c) / 3`
 

@@ -25,7 +25,7 @@ function medias (alunas) {
     return medias
 }
 
-console.log(medias(alunas));
+//console.log(medias(alunas));
 
 //2) Fazer uma função que retorne um array de nomes das aprovadas
 
@@ -46,7 +46,7 @@ function aprovadas (alunas) {
     return aprovadas
 }
 
-console.log(aprovadas(alunas));
+//console.log(aprovadas(alunas));
 
 //3) Fazer uma função que retorne um array de nomes das reprovadas
 
@@ -67,9 +67,29 @@ function reprovadas (alunas) {
     return reprovadas
 }
 
-console.log(reprovadas(alunas));
+//onsole.log(reprovadas(alunas));
 
+/*4) Fazer uma função que retorne um array de objetos:
+  [
+      { 
+          nome: String , 
+          media: Number, 
+          aprovada: Boolean 
+      }
+  ] 
+*/
 
+ function statusAlunas(alunas){
+    return alunas.map(aluna=>{
+        const media = ((aluna.prova.p1+ aluna.prova.p2+ aluna.prova.p3)/3).toFixed(2)
+        return {
+            nome: aluna.nome,
+            media,
+            aprovada: (media >= 7 ? true: false)
+        }
+    })
+ }
+console.log(statusAlunas(alunas))
    
 
 

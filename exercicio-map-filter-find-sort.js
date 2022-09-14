@@ -11,3 +11,65 @@ const alunas = [
     { nome: "Alessandra", prova: { p1: 1.4, p2: 2.7, p3: 6.9 } },
     { nome: "Jane Kelly", prova: { p1: 7, p2: 5.5, p3: 9.1 } },
 ]
+
+//1) Fazer uma função que retorne um array de todas as médias
+
+function medias (alunas) {
+
+    const medias = alunas.map(aluna => {
+        const notas = aluna.prova.p1+ aluna.prova.p2+ aluna.prova.p3;
+        const media =  notas/3;
+        return media.toFixed(2)
+    }
+    )
+    return medias
+}
+
+console.log(medias(alunas));
+
+//2) Fazer uma função que retorne um array de nomes das aprovadas
+
+function aprovadas (alunas) {
+    
+    const aprovadas = [];
+
+     alunas.map(aluna => {
+        const notas = aluna.prova.p1+ aluna.prova.p2+ aluna.prova.p3;
+        const media =  notas/3;
+        if (media >= 7 ){
+
+            aprovadas.push(aluna.nome);
+
+        }
+    }  
+    )
+    return aprovadas
+}
+
+console.log(aprovadas(alunas));
+
+//3) Fazer uma função que retorne um array de nomes das reprovadas
+
+function reprovadas (alunas) {
+    
+    const reprovadas = [];
+
+     alunas.map(aluna => {
+        const notas = aluna.prova.p1+ aluna.prova.p2+ aluna.prova.p3;
+        const media =  notas/3;
+        if (media < 7 ){
+
+            reprovadas.push(aluna.nome)
+
+        }
+    }  
+    )
+    return reprovadas
+}
+
+console.log(reprovadas(alunas));
+
+
+   
+
+

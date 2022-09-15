@@ -14,14 +14,13 @@ const alunas = [
 
 //1) Fazer uma função que retorne um array de todas as médias
 
-const media  = (prova) => (prova.p1+ prova.p2+ prova.p3) /3
+const media  = (prova) => parseFloat(((prova.p1+ prova.p2+ prova.p3) /3).toFixed(2))
 
 const medias = (alunas) => {
 
     return alunas.map(aluna => {   
-        return media(aluna.prova).toFixed(2);
-    }
-    )
+        return media(aluna.prova);
+    })
 }
 
 //console.log(medias(alunas));
@@ -48,17 +47,41 @@ const obterReprovadas = alunas => alunas.filter(aluna => media(aluna.prova) < 7 
   ] 
 */
 
- function statusAlunas(alunas){
+ const statusAlunas = (alunas)=>{
     return alunas.map(aluna=>{
-        const media = ((aluna.prova.p1+ aluna.prova.p2+ aluna.prova.p3)/3).toFixed(2)
+        const resultado = media(aluna.prova)
         return {
             nome: aluna.nome,
-            media,
-            aprovada: (media >= 7 ? true: false)
+            media: resultado,
+            aprovada: resultado >= 7
         }
     })
  }
 //console.log(statusAlunas(alunas))
-   
+
+//6) Fazer uma função que retorne o nome da aluna com maior nota
+ const obterAlunasOrdenadas = (alunas)=>{
+    return statusAlunas(alunas).sort((prevAluna, nextAluna)=>{
+        return prevAluna.media - nextAluna.media
+    })
+ }
+
+const alunaMaiorNota = (alunas)=>{
+    return obterAlunasOrdenadas(alunas).reverse().shift().nome
+}
 
 
+//7) Fazer uma função que retorne o nome da aluna com menor nota
+const alunaMenorNota = (alunas)=>{
+    return obterAlunasOrdenadas(alunas).shift().nome
+}
+//console.log(alunaMenorNota(alunas))
+
+//8) Fazer uma função que retorne a media de toda a turma
+
+const mediaTurma = (alunas)=> (medias(alunas)
+    .reduce((acum, media)=>acum+media)/alunas.length)
+    .toFixed(2)
+
+
+console.log(mediaTurma(alunas))

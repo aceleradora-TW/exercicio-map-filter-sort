@@ -14,60 +14,29 @@ const alunas = [
 
 //1) Fazer uma função que retorne um array de todas as médias
 
-function medias (alunas) {
+const media  = (prova) => (prova.p1+ prova.p2+ prova.p3) /3
 
-    const medias = alunas.map(aluna => {
-        const notas = aluna.prova.p1+ aluna.prova.p2+ aluna.prova.p3;
-        const media =  notas/3;
-        return media.toFixed(2)
+const medias = (alunas) => {
+
+    return alunas.map(aluna => {   
+        return media(aluna.prova).toFixed(2);
     }
     )
-    return medias
 }
 
 //console.log(medias(alunas));
 
 //2) Fazer uma função que retorne um array de nomes das aprovadas
 
-function aprovadas (alunas) {
-    
-    const aprovadas = [];
+const obterAprovadas = alunas => alunas.filter(aluna => media(aluna.prova) >= 7 ).map(aluna => aluna.nome)
 
-     alunas.map(aluna => {
-        const notas = aluna.prova.p1+ aluna.prova.p2+ aluna.prova.p3;
-        const media =  notas/3;
-        if (media >= 7 ){
-
-            aprovadas.push(aluna.nome);
-
-        }
-    }  
-    )
-    return aprovadas
-}
-
-//console.log(aprovadas(alunas));
+//console.log(obterAprovadas(alunas));
 
 //3) Fazer uma função que retorne um array de nomes das reprovadas
 
-function reprovadas (alunas) {
-    
-    const reprovadas = [];
+const obterReprovadas = alunas => alunas.filter(aluna => media(aluna.prova) < 7 ).map(aluna => aluna.nome)
 
-     alunas.map(aluna => {
-        const notas = aluna.prova.p1+ aluna.prova.p2+ aluna.prova.p3;
-        const media =  notas/3;
-        if (media < 7 ){
-
-            reprovadas.push(aluna.nome)
-
-        }
-    }  
-    )
-    return reprovadas
-}
-
-//onsole.log(reprovadas(alunas));
+//console.log(reprovadas(alunas));
 
 /*4) Fazer uma função que retorne um array de objetos:
   [
@@ -89,7 +58,7 @@ function reprovadas (alunas) {
         }
     })
  }
-console.log(statusAlunas(alunas))
+//console.log(statusAlunas(alunas))
    
 
 

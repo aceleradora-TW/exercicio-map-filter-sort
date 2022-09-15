@@ -13,42 +13,33 @@ const alunas = [
 ]
 
 //1) Fazer uma função que retorne um array de todas as médias
-
-const media  = (prova) => parseFloat(((prova.p1+ prova.p2+ prova.p3) /3).toFixed(2))
+//[['p1', 5.6], ['p2', 6.7]]
+let cont = 0
+const media = (provas) => {
+    const vet = Object.entries(provas)
+    vet.forEach((prova) => {
+        cont += prova[1]
+    })
+    return parseFloat((cont/vet.length).toFixed(2))
+}
 
 const medias = (alunas) => {
 
-    return alunas.map(aluna => {   
+    return alunas.map(aluna => {
         return media(aluna.prova);
     })
 }
-
-//console.log(medias(alunas));
-
 //2) Fazer uma função que retorne um array de nomes das aprovadas
-
-const obterAprovadas = alunas => alunas.filter(aluna => media(aluna.prova) >= 7 ).map(aluna => aluna.nome)
-
-//console.log(obterAprovadas(alunas));
+const obterAprovadas = alunas => alunas.filter(aluna => media(aluna.prova) >= 7)
+    .map(aluna => aluna.nome)
 
 //3) Fazer uma função que retorne um array de nomes das reprovadas
+const obterReprovadas = alunas => alunas.filter(aluna => media(aluna.prova) < 7)
+    .map(aluna => aluna.nome)
 
-const obterReprovadas = alunas => alunas.filter(aluna => media(aluna.prova) < 7 ).map(aluna => aluna.nome)
-
-//console.log(reprovadas(alunas));
-
-/*4) Fazer uma função que retorne um array de objetos:
-  [
-      { 
-          nome: String , 
-          media: Number, 
-          aprovada: Boolean 
-      }
-  ] 
-*/
-
- const statusAlunas = (alunas)=>{
-    return alunas.map(aluna=>{
+/*4) Fazer uma função que retorne um array de objetos:*/
+const statusAlunas = (alunas) => {
+    return alunas.map(aluna => {
         const resultado = media(aluna.prova)
         return {
             nome: aluna.nome,
@@ -56,32 +47,25 @@ const obterReprovadas = alunas => alunas.filter(aluna => media(aluna.prova) < 7 
             aprovada: resultado >= 7
         }
     })
- }
-//console.log(statusAlunas(alunas))
-
+}
 //6) Fazer uma função que retorne o nome da aluna com maior nota
- const obterAlunasOrdenadas = (alunas)=>{
-    return statusAlunas(alunas).sort((prevAluna, nextAluna)=>{
+const obterAlunasOrdenadas = (alunas) => {
+    return statusAlunas(alunas).sort((prevAluna, nextAluna) => {
         return prevAluna.media - nextAluna.media
     })
- }
+}
 
-const alunaMaiorNota = (alunas)=>{
+const alunaMaiorNota = (alunas) => {
     return obterAlunasOrdenadas(alunas).reverse().shift().nome
 }
 
-
 //7) Fazer uma função que retorne o nome da aluna com menor nota
-const alunaMenorNota = (alunas)=>{
+const alunaMenorNota = (alunas) => {
     return obterAlunasOrdenadas(alunas).shift().nome
 }
-//console.log(alunaMenorNota(alunas))
 
 //8) Fazer uma função que retorne a media de toda a turma
-
-const mediaTurma = (alunas)=> (medias(alunas)
-    .reduce((acum, media)=>acum+media)/alunas.length)
+const mediaTurma = (alunas) => (medias(alunas)
+    .reduce((acum, media) => acum + media) / alunas.length)
     .toFixed(2)
 
-
-console.log(mediaTurma(alunas))

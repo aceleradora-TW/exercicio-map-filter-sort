@@ -13,9 +13,8 @@ const alunas = [
 ]
 
 //1) Fazer uma função que retorne um array de todas as médias
-//[['p1', 5.6], ['p2', 6.7]]
-let cont = 0
 const media = (provas) => {
+    let cont = 0
     const vet = Object.entries(provas)
     vet.forEach((prova) => {
         cont += prova[1]
@@ -69,3 +68,4 @@ const mediaTurma = (alunas) => (medias(alunas)
     .reduce((acum, media) => acum + media) / alunas.length)
     .toFixed(2)
 
+console.log(mediaTurma(alunas))

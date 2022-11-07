@@ -12,4 +12,19 @@ const alunas = [
     { nome: "Jane Kelly", prova: { p1: 7, p2: 5.5, p3: 9.1 } },
 ]
 
-console.log(alunas)
+
+//media 7
+
+alunas.forEach((aluna)=> {
+    let{nome, prova}= aluna
+    let calculoMedia= Math.floor((prova.p1 + prova.p2 + prova.p3)/ 3)
+    console.log(`nome: ${nome} - média: ${calculoMedia}`)
+    
+    // calculoMedia >= 7 ? true : false
+
+    
+})
+
+
+
+

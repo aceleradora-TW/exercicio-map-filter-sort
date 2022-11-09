@@ -13,18 +13,47 @@ const alunas = [
 ]
 
 
-//media 7
+/*const mediaAlunas = (estudantes) => {
+    let novoArrayCalcularNota = []
+    estudantes.forEach((estudante) => {
+        let { nome, prova } = estudante
+        let calculoMedia = parseFloat((prova.p1 + prova.p2 + prova.p3) / 3).toFixed(1)
+        novoArrayCalcularNota.push(`nome: ${nome}, media: ${calculoMedia},aprovado: ${calculoMedia >= 7 ? true : false}`)
+        calculoMedia > maiorNota ? maiorNota = calculoMedia : menorNota = calculoMedia
 
-alunas.forEach((aluna)=> {
-    let{nome, prova}= aluna
-    let calculoMedia= Math.floor((prova.p1 + prova.p2 + prova.p3)/ 3)
-    console.log(`nome: ${nome} - média: ${calculoMedia}`)
-    
-    // calculoMedia >= 7 ? true : false
-
-    
-})
+    })
+    return novoArrayCalcularNota
+}
+console.log(mediaAlunas(alunas))
 
 
+const mediaTurma =(estudante)=>{
+
+}
+*/
+const calcularMedia = (prova) => {
+    return parseFloat(((prova.p1 + prova.p2 + prova.p3) / 3).toFixed(1))
+}
+// 1 
+const calcularMedias = (alunas) => {
+    return alunas.map(aluna => {
+        return calcularMedia(aluna.prova)
+    })
+}
+//console.log(calcularMedias(alunas))
+
+//2
+const nomeAlunasAprovadas = alunas => alunas
+    .filter(aluna => calcularMedia(aluna.prova) >= 7)
+    .map(aluna => aluna.nome)
+
+//console.log(nomeAlunasAprovadas(alunas))
+//3
+const nomeAlunasReprovadas = alunas => alunas
+    .filter(aluna => calcularMedia(aluna.prova) < 7)
+    .map(aluna => aluna.nome)
+
+console.log(nomeAlunasReprovadas(alunas))
+//4
 
 

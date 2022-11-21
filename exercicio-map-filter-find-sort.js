@@ -1,4 +1,3 @@
-
 const alunas = [
     { nome: "Ashley", prova: { p1: 5.6, p2: 6.7, p3: 9 } },
     { nome: "Sabrina", prova: { p1: 6.3, p2: 7.5, p3: 10 } },
@@ -12,32 +11,20 @@ const alunas = [
     { nome: "Jane Kelly", prova: { p1: 7, p2: 5.5, p3: 9.1 } },
 ]
 
-
-/*const mediaAlunas = (estudantes) => {
-    let novoArrayCalcularNota = []
-    estudantes.forEach((estudante) => {
-        let { nome, prova } = estudante
-        let calculoMedia = parseFloat((prova.p1 + prova.p2 + prova.p3) / 3).toFixed(1)
-        novoArrayCalcularNota.push(`nome: ${nome}, media: ${calculoMedia},aprovado: ${calculoMedia >= 7 ? true : false}`)
-        calculoMedia > maiorNota ? maiorNota = calculoMedia : menorNota = calculoMedia
-
-    })
-    return novoArrayCalcularNota
-}
-console.log(mediaAlunas(alunas))
-const mediaTurma =(estudante)=>{
-}
-*/
 const calcularMedia = (prova) => {
     return parseFloat(((prova.p1 + prova.p2 + prova.p3) / 3).toFixed(1))
 }
+
 // 1 
+let acomulador = 0
 const calcularMedias = (alunas) => {
     return alunas.map(aluna => {
+        acomulador++
         return calcularMedia(aluna.prova)
     })
 }
-//console.log(calcularMedias(alunas))
+
+// console.log(calcularMedias(alunas))
 
 //2
 const nomeAlunasAprovadas = alunas => alunas
@@ -45,12 +32,49 @@ const nomeAlunasAprovadas = alunas => alunas
     .map(aluna => aluna.nome)
 
 //console.log(nomeAlunasAprovadas(alunas))
+
 //3
 const nomeAlunasReprovadas = alunas => alunas
     .filter(aluna => calcularMedia(aluna.prova) < 7)
     .map(aluna => aluna.nome)
 
-console.log(nomeAlunasReprovadas(alunas))
-//4
+// console.log(nomeAlunasReprovadas(alunas))
 
+//4   
+const arrayDeObjetos = (aluna) => {
+    let alunasObj = {}
+    return aluna.map(aluna => alunasObj = {
+        nome: aluna.nome,
+        media: calcularMedia(aluna.prova),
+        aprovado: calcularMedia(aluna.prova) >= 7 ? true : false
+    })
+}
 
+// console.log(arrayDeObjetos(alunas))
+
+//6
+const alunasOrdem = (alunas) => {
+        return arrayDeObjetos(alunas).sort((a, b) => {
+            return a.media - b.media
+        })
+}
+const alunaMaiorNotas = (alunas) => {
+    return alunasOrdem(alunas).reverse().shift().nome
+}
+
+// console.log(alunaMaiorNotas(alunas)) 
+
+//7
+const alunaMenorNotas = (alunas) => {
+    return alunasOrdem(alunas).shift().nome
+}
+
+// console.log(alunaMenorNotas(alunas)) 
+
+//8
+const mediaTurma = (alunas) => {
+    let soma = calcularMedias(alunas).reduce((total, contador) => total + contador)
+    return (soma / acomulador).toFixed(2)
+}
+
+// console.log(mediaTurma(alunas))

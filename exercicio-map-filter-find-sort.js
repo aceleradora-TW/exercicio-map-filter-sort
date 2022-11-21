@@ -16,12 +16,15 @@ const calcularMedia = (prova) => {
 }
 
 // 1 
+let acomulador = 0
 const calcularMedias = (alunas) => {
     return alunas.map(aluna => {
+        acomulador++
         return calcularMedia(aluna.prova)
     })
 }
-//console.log(calcularMedias(alunas))
+
+// console.log(calcularMedias(alunas))
 
 //2
 const nomeAlunasAprovadas = alunas => alunas
@@ -58,5 +61,14 @@ const alunasOrdem = (alunas) => {
 const alunaMaiorNotas = (alunas) => {
     return alunasOrdem(alunas).reverse().shift().nome
 }
+// console.log(alunaMaiorNotas(alunas)) 
 
-console.log(alunaMaiorNotas(alunas)) 
+
+
+//8
+const mediaTurma = (alunas) => {
+    let soma = calcularMedias(alunas).reduce((total, contador) => total + contador)
+    return (soma / acomulador).toFixed(2)
+}
+
+console.log(mediaTurma(alunas))

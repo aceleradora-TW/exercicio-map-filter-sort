@@ -52,7 +52,7 @@ const arrayDeObjetos = (aluna) => {
 
 // console.log(arrayDeObjetos(alunas))
 
-//5 
+//6
 const alunasOrdem = (alunas) => {
         return arrayDeObjetos(alunas).sort((a, b) => {
             return a.media - b.media
@@ -61,9 +61,15 @@ const alunasOrdem = (alunas) => {
 const alunaMaiorNotas = (alunas) => {
     return alunasOrdem(alunas).reverse().shift().nome
 }
+
 // console.log(alunaMaiorNotas(alunas)) 
 
+//7
+const alunaMenorNotas = (alunas) => {
+    return alunasOrdem(alunas).shift().nome
+}
 
+// console.log(alunaMenorNotas(alunas)) 
 
 //8
 const mediaTurma = (alunas) => {
@@ -71,4 +77,4 @@ const mediaTurma = (alunas) => {
     return (soma / acomulador).toFixed(2)
 }
 
-console.log(mediaTurma(alunas))
+// console.log(mediaTurma(alunas))

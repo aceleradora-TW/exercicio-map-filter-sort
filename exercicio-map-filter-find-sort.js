@@ -25,10 +25,7 @@ const alunas = [
     return novoArrayCalcularNota
 }
 console.log(mediaAlunas(alunas))
-
-
 const mediaTurma =(estudante)=>{
-
 }
 */
 const calcularMedia = (prova) => {

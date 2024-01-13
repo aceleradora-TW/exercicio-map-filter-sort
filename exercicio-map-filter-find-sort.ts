@@ -1,5 +1,13 @@
+type Alunas = {
+    nome: string,
+    prova: {
+        p1: number,
+        p2: number,
+        p3: number
+    }
+}[]
 
-const alunas = [
+const alunas: Alunas = [
     { nome: "Ashley", prova: { p1: 5.6, p2: 6.7, p3: 9 } },
     { nome: "Sabrina", prova: { p1: 6.3, p2: 7.5, p3: 10 } },
     { nome: "Samantha", prova: { p1: 8, p2: 9.2, p3: 7 } },
